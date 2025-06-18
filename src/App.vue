@@ -1,5 +1,6 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import Layout from './components/Layout.vue';
 </script>
 
 <template>
@@ -7,6 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
   </div>
 <!--  <HelloWorld msg="Vite + Vue" />-->
+  <Layout />
 </template>
 
 <style lang="css" scoped>
