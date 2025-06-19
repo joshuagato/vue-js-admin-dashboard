@@ -9,22 +9,22 @@ export default defineComponent({
 <template>
   <section id="side-bar">
     <section id="side-bar-top">
-      <article class="menu-item"><img src="../../assets/side-menu/users-solid%201.png" /><span>Users</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/video-solid%202.png" /><span>Bookings</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" /><span>Academics</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/wallet-solid 1.png" /><span>Finance</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" /><span>Academy</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" /><span>Schools</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/bullhorn-solid 1.png" /><span>Marketing</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/message-solid 1.png" /><span>Messages</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/envelope-solid 2.png" /><span>Emails</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/robot-solid 1.png" /><span>Support</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/paintbrush-solid 1.png" /><span>Design</span></article>
-      <article class="menu-item"><img src="../../assets/side-menu/star-solid 17.png" /><span>Reviews</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/users-solid%201.png" alt="Users icon" /><span>Users</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/video-solid%202.png" alt="Bookings icon" /><span>Bookings</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academics icon" /><span>Academics</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/wallet-solid 1.png" alt="Finance icon" /><span>Finance</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academy icon" /><span>Academy</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Schools icon" /><span>Schools</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/bullhorn-solid 1.png" alt="Marketing icon" /><span>Marketing</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/message-solid 1.png" alt="Messages icon" /><span>Messages</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/envelope-solid 2.png" alt="Emails icon" /><span>Emails</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/robot-solid 1.png" alt="Support icon" /><span>Support</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/paintbrush-solid 1.png" alt="Design icon" /><span>Design</span></article>
+      <article class="menu-item"><img src="../../assets/side-menu/star-solid 17.png" alt="Reviews icon" /><span>Reviews</span></article>
     </section>
 
     <section id="side-bar-bottom">
-      <article class="menu-item"><img src="../../assets/side-menu/right-from-bracket-solid 1.png" /></article>
+      <article class="menu-item"><img src="../../assets/side-menu/right-from-bracket-solid 1.png" alt="logout icon" /></article>
     </section>
   </section>
 </template>
