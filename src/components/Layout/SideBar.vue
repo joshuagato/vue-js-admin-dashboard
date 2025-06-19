@@ -56,6 +56,10 @@ export default defineComponent({
   }
 
   #side-bar-top {
+    .menu-item {
+      cursor: default;
+    }
+
     .menu-item:first-child {
       padding-top: 34px;
     }
@@ -63,6 +67,7 @@ export default defineComponent({
 
   #side-bar-bottom {
     .menu-item {
+      cursor: pointer;
       justify-content: center;
     }
   }
