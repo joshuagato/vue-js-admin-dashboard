@@ -194,6 +194,14 @@ onUnmounted(() => {
           font-weight: 600;
           transition: opacity 3s ease-in-out;
         }
+
+        a {
+          text-decoration: none;
+
+          &:link, &:visited {
+            color: #000;
+          }
+        }
       }
 
       &.is-visible {
