@@ -39,7 +39,7 @@ const handleMouseEnter = () => {
     // rect.left gives the distance from the left of the viewport to the left of the menu item.
     const paddingTop = parseInt(computedStyle.paddingTop);
     const borderTopWidth = parseFloat(computedStyle.borderTopWidth);
-    console.log({borderTopWidth, paddingTop});
+    // console.log({borderTopWidth, paddingTop});
 
     extraMenuStyle.top = `${rect.top + paddingTop}px`;
     extraMenuStyle.left = `${rect.left + 190}px`;
