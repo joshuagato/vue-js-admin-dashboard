@@ -40,6 +40,7 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 4px 1px rgba(0, 0, 0, 0.25);
 
   #left-side {
     width: 172px;
