@@ -5,10 +5,8 @@ import Layout from './components/Layout.vue';
 
 <template>
   <div>
-
+    <Layout />
   </div>
-<!--  <HelloWorld msg="Vite + Vue" />-->
-  <Layout />
 </template>
 
 <style lang="css" scoped>
