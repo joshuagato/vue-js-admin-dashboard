@@ -188,6 +188,12 @@ onUnmounted(() => {
         font-weight: 400;
         margin-bottom: 20px;
         border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+          font-weight: 600;
+          transition: opacity 3s ease-in-out;
+        }
       }
 
       &.is-visible {
