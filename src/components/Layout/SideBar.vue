@@ -92,11 +92,11 @@ onUnmounted(() => {
       >
         <h1>Users</h1>
         <ul>
-          <li>Staff</li>
-          <li>Students</li>
-          <li>Parent</li>
-          <li>Tutors</li>
-          <li>Facilitators</li>
+          <li><router-link to="/users/staff">Staff</router-link></li>
+          <li><router-link to="/users/students">Students</router-link></li>
+          <li><router-link to="/users/parent">Parent</router-link></li>
+          <li><router-link to="/users/tutors">Tutors</router-link></li>
+          <li><router-link to="/users/facilitators">Facilitators</router-link></li>
         </ul>
       </div>
       <article class="menu-item"><img src="../../assets/side-menu/video-solid%202.png" alt="Bookings icon" /><span>Bookings</span></article>
