@@ -49,15 +49,16 @@ defineProps({
     font-family: Inter, sans-serif;
     border: none;
     cursor: pointer;
-    width: 147px;
+    width: 167px;
     height: 34px;
     display: flex;
     align-items: center;
     border-radius: 5px;
+    justify-content: space-around;
 
     span {
-      padding-left: 15px;
-      margin-right: 25px;
+      //padding-left: 5px;
+      //margin-right: 35px;
     }
   }
 
