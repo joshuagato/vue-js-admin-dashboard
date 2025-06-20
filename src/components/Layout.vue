@@ -1,13 +1,24 @@
-<script lang="ts">
-import {defineComponent} from 'vue'
+<script setup lang="ts">
+import {computed} from 'vue';
+import { useRoute } from 'vue-router';
 import TopBar from "./Layout/TopBar.vue";
 import SideBar from "./Layout/SideBar.vue";
-import DisplayCard from "./DisplayCard.vue";
+import Home from "./Home.vue";
+import Staff from "./users/Staff.vue";
+import Tutor from "./users/Tutor.vue";
 
-export default defineComponent({
-  name: "Layout",
-  components: {SideBar, TopBar, DisplayCard}
-})
+// Reactive reference to store the current URL
+// const currentUrlObject = ref(window.location.pathname);
+// const currentUrl = ref(currentUrlObject.value);
+/* This does not work */
+
+const route = useRoute();
+
+// Computed properties to check for specific URL segments
+const isHomePath = computed(() => route.path === '/');
+// const isTutorPath = computed(() => currentUrl.value.includes('/tutor')); // This does not work
+const isTutorPath = computed(() => route.path.includes('/users/tutor'));
+const isStaffPath = computed(() => route.path.includes('/users/staff'));
 </script>
 
 <template>
@@ -16,9 +27,9 @@ export default defineComponent({
     <SideBar />
 
     <section id="main-content-section">
-      <DisplayCard :data-figure="124" data-text="Student Signups" />
-      <DisplayCard :data-figure="124" data-text="Upcoming Lessons" />
-      <DisplayCard :data-figure="124" data-text="Total Tickets" />
+      <Home v-if="isHomePath" />
+      <Staff v-else-if="isStaffPath" />
+      <Tutor v-else-if="isTutorPath" />
     </section>
   </div>
 </template>
@@ -32,6 +43,5 @@ export default defineComponent({
   font-family: Inter, sans-serif;
   width: calc(100% - 172px);
   height: calc(100% - 73px);
-  display: flex;
 }
 </style>
