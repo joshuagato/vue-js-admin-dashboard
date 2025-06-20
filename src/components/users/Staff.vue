@@ -28,7 +28,7 @@ const staffList = [
     <section class="bottom-section">
       <article class="head-section">
         <h1 class="heading">{{'Staff'}}</h1>
-        <router-link to="">{{'Create Staff'}}</router-link>
+        <router-link to="/users/create-staff">{{'Create Staff'}}</router-link>
       </article>
 
       <hr />
