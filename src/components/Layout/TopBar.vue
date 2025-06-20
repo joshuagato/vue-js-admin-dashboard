@@ -1,5 +1,5 @@
 <script lang="ts">
-import {defineComponent} from 'vue'
+import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: "TopBar"
@@ -9,7 +9,7 @@ export default defineComponent({
 <template>
   <section id="top-bar">
     <article id="left-side">
-      <img class="logo-img" src="/virtutor-logo.png" alt="Virtutor Logo">
+      <router-link to="/"><img class="logo-img" src="/virtutor-logo.png" alt="Virtutor Logo"></router-link>
     </article>
     <article id="right-side">
 
