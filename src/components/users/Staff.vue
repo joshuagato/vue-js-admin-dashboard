@@ -2,6 +2,17 @@
 import DisplayCard from "../DisplayCard.vue";
 import FilterCard from "../FilterCard.vue";
 
+const staffList = [
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+]
+
 </script>
 
 <template>
@@ -44,12 +55,12 @@ import FilterCard from "../FilterCard.vue";
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style="width: 100px">VT002123</td>
-              <td>Karen Okyere</td>
-              <td>Tech</td>
-              <td>Technical Agent</td>
-              <td style="width: 140px">23/09/2023</td>
+            <tr v-for="staff in staffList">
+              <td style="width: 100px">{{staff.id}}</td>
+              <td>{{staff.fullName}}</td>
+              <td>{{ staff.department }}</td>
+              <td>{{staff.role}}</td>
+              <td style="width: 140px">{{staff.dateCreated}}</td>
               <td>
                 <button class="view-more">View Staff</button>
                 <button class="activate">Activate</button>
@@ -146,32 +157,35 @@ import FilterCard from "../FilterCard.vue";
       }
 
       tbody {
-        td {
-          &:last-child {
-            width: 320px;
-            display: flex;
-            justify-content: space-between;
+        tr {
+          td {
+            border-bottom: 1px solid #D9D9D9;
+            &:last-child {
+              width: 320px;
+              display: flex;
+              justify-content: space-between;
 
-            button {
-              font-weight: 500;
-              font-size: 14px;
-              border-radius: 5px;
-              width: 100px;
-              height: 34px;
-              border: none;
-              cursor: pointer;
-            }
+              button {
+                font-weight: 500;
+                font-size: 14px;
+                border-radius: 5px;
+                width: 100px;
+                height: 34px;
+                border: none;
+                cursor: pointer;
+              }
 
-            .view-more {
-              background-color: #DADADA;
-            }
+              .view-more {
+                background-color: #DADADA;
+              }
 
-            .activate {
-              background-color: #9CFFC5;
-            }
+              .activate {
+                background-color: #9CFFC5;
+              }
 
-            .deactivate {
-              background-color: #FE9E9E;
+              .deactivate {
+                background-color: #FE9E9E;
+              }
             }
           }
         }
