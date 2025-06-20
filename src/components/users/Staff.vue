@@ -19,7 +19,17 @@ import FilterCard from "../FilterCard.vue";
         <h1 class="heading">{{'Staff'}}</h1>
         <router-link to="">{{'Create Staff'}}</router-link>
       </article>
+
       <hr />
+
+      <article class="mid-section">
+        <h1 class="heading">Total Number: {{'200'}}</h1>
+        <FilterCard
+            class="filter-card" filter-title="All Accounts"
+            filter-option1="Option 1" filter-option2="Option 2"
+            filter-option3="Option 3"
+        />
+      </article>
 
     </section>
   </article>
@@ -71,6 +81,22 @@ import FilterCard from "../FilterCard.vue";
         &:link, &:visited {
           color: #FFF;
         }
+      }
+    }
+
+    .mid-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .heading {
+        font-size: 18px;
+        font-weight: 700;
+        margin-left: 54px;
+      }
+
+      .filter-card {
+        margin-right: 66px;
       }
     }
 
