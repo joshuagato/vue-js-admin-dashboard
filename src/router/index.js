@@ -1,9 +1,13 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../App.vue';
+import Layout from "../components/Layout.vue";
 
 const routes = [
-    { path: '/', component: HomeView },
+    { path: '/', component: Layout },
+    { path: '/url(.*)*', component: Layout },
+    // { path: '/', component: Layout },
+    // { path: '/users', children: [ { path: 'userType(.*)*', component: Layout } ] },
     // Add more routes as needed
 ];
 
