@@ -6,6 +6,7 @@ import SideBar from "./Layout/SideBar.vue";
 import Home from "./Home.vue";
 import Staff from "./users/Staff.vue";
 import Tutor from "./users/Tutor.vue";
+import StaffCreation from "./users/StaffCreation.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -19,6 +20,7 @@ const isHomePath = computed(() => route.path === '/');
 // const isTutorPath = computed(() => currentUrl.value.includes('/tutor')); // This does not work
 const isTutorPath = computed(() => route.path.includes('/users/tutor'));
 const isStaffPath = computed(() => route.path.includes('/users/staff'));
+const isCreateStaffPath = computed(() => route.path.includes('/users/create-staff'));
 </script>
 
 <template>
@@ -30,6 +32,7 @@ const isStaffPath = computed(() => route.path.includes('/users/staff'));
       <Home v-if="isHomePath" />
       <Staff v-else-if="isStaffPath" />
       <Tutor v-else-if="isTutorPath" />
+      <StaffCreation />
     </section>
   </div>
 </template>
