@@ -32,7 +32,7 @@ const isCreateStaffPath = computed(() => route.path.includes('/users/create-staf
       <Home v-if="isHomePath" />
       <Staff v-else-if="isStaffPath" />
       <Tutor v-else-if="isTutorPath" />
-      <StaffCreation />
+      <StaffCreation v-else-if="isCreateStaffPath" />
     </section>
   </div>
 </template>
