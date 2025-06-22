@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TextInput from "../inputs/TextInput.vue";
 import EmailInput from "../inputs/EmailInput.vue";
+import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
 
 </script>
 
@@ -10,11 +11,11 @@ import EmailInput from "../inputs/EmailInput.vue";
 
   <h3 class="sub-heading">{{'Personal Info.'}}</h3>
 
-  <div class="three-component-row">
+  <ThreeComponentsRow>
     <TextInput id="firstName" label="First Name" />
     <TextInput id="lastName" label="Last Name" />
     <EmailInput id="email" label="Email" />
-  </div>
+  </ThreeComponentsRow>
 </div>
 </template>
 
@@ -43,11 +44,6 @@ import EmailInput from "../inputs/EmailInput.vue";
     margin-bottom: 21px;
   }
 
-  .three-component-row {
-    margin-left: 80px;
-    width: calc(100% - 80px - 80px);
-    display: flex;
-    justify-content: space-between;
-  }
+
 }
 </style>
