@@ -34,7 +34,7 @@ watch(() => props.modelValue, (newPropValue) => {
 
 <template>
   <article class="text-input">
-    <label :class="label" :for="id">{{label}}</label>
+    <label class="label" :for="id">{{label}}</label>
     <select :id="id" v-model="internalValue">
       <option selected :value="defaultOption">{{ defaultOption }}</option>
       <option v-for="{value, label} in options" :value="value">{{label}}</option>

@@ -32,7 +32,7 @@ watch(() => props.modelValue, (newPropValue) => {
 
 <template>
   <article class="email-input">
-    <label :class="label" :for="id">{{label}}</label>
+    <label class="label" :for="id">{{label}}</label>
     <input :id="id" v-model="internalValue" type="email">
   </article>
 </template>
