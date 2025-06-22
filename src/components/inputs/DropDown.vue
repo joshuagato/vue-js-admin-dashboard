@@ -4,6 +4,8 @@ import { ref, watch } from 'vue';
 const props = defineProps({
   id: String,
   label: String,
+  defaultOption: String,
+  options: Array<T>,
   modelValue: String,
 })
 
@@ -31,14 +33,17 @@ watch(() => props.modelValue, (newPropValue) => {
 </script>
 
 <template>
-  <article class="date-input">
+  <article class="text-input">
     <label :class="label" :for="id">{{label}}</label>
-    <input :id="id" v-model="internalValue" type="date">
+    <select :id="id" v-model="internalValue">
+      <option selected :value="defaultOption">{{ defaultOption }}</option>
+      <option v-for="{value, label} in options" :value="value">{{label}}</option>
+    </select>
   </article>
 </template>
 
 <style scoped lang="scss">
-.date-input {
+.text-input {
   display: flex;
   flex-direction: column;
 
@@ -48,7 +53,7 @@ watch(() => props.modelValue, (newPropValue) => {
     margin-bottom: 15px;
   }
 
-  input {
+  select {
     width: 350px;
     height: 68px;
     padding-left: 10px;

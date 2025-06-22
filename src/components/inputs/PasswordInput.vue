@@ -32,8 +32,8 @@ watch(() => props.modelValue, (newPropValue) => {
 
 <template>
   <article class="password-input">
-    <label class="label" for="{{id}}">{{label}}</label>
-    <input id="{{id}}" v-model="internalValue" type="password">
+    <label class="label" :for="id">{{label}}</label>
+    <input :id="id" v-model="internalValue" type="password">
   </article>
 </template>
 
