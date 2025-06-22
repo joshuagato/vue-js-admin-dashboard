@@ -2,11 +2,12 @@
 import TextInput from "../inputs/TextInput.vue";
 import EmailInput from "../inputs/EmailInput.vue";
 import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
+import TelephoneInput from "../inputs/TelephoneInput.vue";
 
 </script>
 
 <template>
-<div id="staff-creation-container">
+<div id="staff-creation-container" class="fade-in">
   <h1 class="heading">{{'Staff Info.'}}</h1>
 
   <h3 class="sub-heading">{{'Personal Info.'}}</h3>
@@ -15,6 +16,10 @@ import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
     <TextInput id="firstName" label="First Name" />
     <TextInput id="lastName" label="Last Name" />
     <EmailInput id="email" label="Email" />
+  </ThreeComponentsRow>
+
+  <ThreeComponentsRow>
+    <TelephoneInput id="phoneNumber" label="Phone Number" />
   </ThreeComponentsRow>
 </div>
 </template>
