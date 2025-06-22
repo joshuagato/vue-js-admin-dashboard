@@ -49,13 +49,14 @@ watch(() => props.modelValue, (newPropValue) => {
   }
 
   input {
-    width: 323px;
+    width: 350px;
     height: 68px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
     border: 3px solid #716F6F;
     outline: none;
+    font-size: 18px;
   }
 }
 </style>
