@@ -3,6 +3,15 @@ import TextInput from "../inputs/TextInput.vue";
 import EmailInput from "../inputs/EmailInput.vue";
 import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
 import TelephoneInput from "../inputs/TelephoneInput.vue";
+import PasswordInput from "../inputs/PasswordInput.vue";
+import DateInput from "../inputs/DateInput.vue";
+import DropDown from "../inputs/DropDown.vue";
+
+const options = [
+  { label: "IT Support", value: "IT Support" },
+  { label: "IT Support", value: "IT Support" },
+  { label: "IT Support", value: "IT Support" },
+];
 
 </script>
 
@@ -20,6 +29,14 @@ import TelephoneInput from "../inputs/TelephoneInput.vue";
 
   <ThreeComponentsRow>
     <TelephoneInput id="phoneNumber" label="Phone Number" />
+    <DropDown id="role" label="Select Role" default-option="Select Role" :options="options" model-value="Select Role" />
+    <DropDown id="department" label="Select Department" default-option="Select Department" :options="options" model-value="Select Department" />
+  </ThreeComponentsRow>
+
+  <ThreeComponentsRow>
+    <PasswordInput id="password" label="Password" />
+    <TextInput id="country" label="Country of Residence" />
+    <DateInput id="dateOfBirth" label="Date of Birth" />
   </ThreeComponentsRow>
 </div>
 </template>
