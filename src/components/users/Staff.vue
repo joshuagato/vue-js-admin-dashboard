@@ -16,7 +16,7 @@ const staffList = [
 </script>
 
 <template>
-  <article id="staff-container">
+  <article id="staff-container" class="fade-in">
     <section class="top-section">
       <DisplayCard :data-figure="124" data-text="Total Staff" />
       <DisplayCard :data-figure="12" data-text="Active Staff" />
