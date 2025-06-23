@@ -22,7 +22,7 @@ const staffList = [
       <DisplayCard :data-figure="12" data-text="Active Staff" />
       <DisplayCard :data-figure="12" data-text="Deactivated Staff" />
 
-      <FilterCard filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+      <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <section class="bottom-section">
@@ -78,6 +78,11 @@ const staffList = [
 #staff-container {
   .top-section {
     display: flex;
+
+    .filter-card {
+      margin-top: 30px;
+      margin-left: 45px;
+    }
   }
 
   .bottom-section {
@@ -127,6 +132,8 @@ const staffList = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 15px;
+      margin-bottom: 50px;
 
       .heading {
         font-size: 18px;
