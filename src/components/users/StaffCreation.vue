@@ -97,7 +97,15 @@ const options = [
     <FileInput id="backgroundCheck" label="Background check" />
   </TwoComponentRow>
 
-
+  <!-- Qualifications and Work Experience -->
+  <DividingHeader text="Qualifications and Work Experience" />
+  <TwoComponentRow>
+    <FileInput id="academicCertificated" label="Academic Certificates" />
+    <FileInput id="cvResume" label="CV / Resume" />
+  </TwoComponentRow>
+  <TwoComponentRow>
+    <FileInput id="proofOfPreviousEmployment" label="Proof of previous employment or reference letters" />
+  </TwoComponentRow>
 </div>
 </template>
 
