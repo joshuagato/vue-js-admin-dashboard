@@ -10,6 +10,7 @@ import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import DividingHeader from "../headers/DividingHeader.vue";
 import FirstSubHeading from "../headers/FirstSubHeading.vue";
 import FileInput from "../inputs/FileInput.vue";
+import TwoComponentRow from "../containers/TwoComponentRow.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -48,6 +49,7 @@ const options = [
     <DropDown id="maritalStatus" label="Select Marital Status" default-option="Select Marital Status" :options="options" model-value="Select Marital Status" />
   </TwoComponentsRow>
 
+  <!-- Emergency Contact Info. -->
   <DividingHeader text="Emergency Contact Info." />
 
   <ThreeComponentsRow>
@@ -61,6 +63,7 @@ const options = [
     <EmailInput id="ecEmail" label="Email" />
   </TwoComponentsRow>
 
+  <!-- Identification and Legal Documents -->
   <DividingHeader text="Identification and Legal Documents" />
 
   <TwoComponentsRow>
@@ -76,6 +79,25 @@ const options = [
   <TwoComponentsRow>
     <TextInput id="tinNumber" label="TIN Number" />
   </TwoComponentsRow>
+
+  <!-- Employment Documents -->
+  <DividingHeader text="Employment Documents" />
+
+  <TwoComponentRow>
+    <FileInput id="signedContractOfEmployment" label="Signed Contract of Employment" />
+    <FileInput id="nonDisclosureAgreement" label="Non-disclosure Agreement (NDA)" />
+  </TwoComponentRow>
+
+  <TwoComponentRow>
+    <FileInput id="intellectualPropertyAgreement" label="Intellectual property agreement" />
+    <FileInput id="jobDescriptionConfirmation" label="Job description confirmation" />
+  </TwoComponentRow>
+
+  <TwoComponentRow>
+    <FileInput id="backgroundCheck" label="Background check" />
+  </TwoComponentRow>
+
+
 </div>
 </template>
 
