@@ -11,6 +11,7 @@ import DividingHeader from "../headers/DividingHeader.vue";
 import FirstSubHeading from "../headers/FirstSubHeading.vue";
 import FileInput from "../inputs/FileInput.vue";
 import TwoComponentRow from "../containers/TwoComponentRow.vue";
+import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -143,6 +144,9 @@ const options = [
     <TextInput id="accountNumber" label="Account No" />
     <TextInput id="accountName" label="Account Name" />
   </ThreeComponentsRow>
+
+  <!-- Submit Button -->
+  <CreateEntityButton title="Create Staff"/>
 </div>
 </template>
 
