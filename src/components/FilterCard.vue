@@ -29,8 +29,6 @@ defineProps({
 
 <style scoped lang="scss">
 #filter-container {
-  margin-left: 54px;
-  margin-top: 24px;
   display: flex;
   align-items: flex-start;
 
