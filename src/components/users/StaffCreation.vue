@@ -12,6 +12,7 @@ import FirstSubHeading from "../headers/FirstSubHeading.vue";
 import FileInput from "../inputs/FileInput.vue";
 import TwoComponentRow from "../containers/TwoComponentRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
+import MainHeading from "../headers/MainHeading.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -23,7 +24,7 @@ const options = [
 
 <template>
 <div id="staff-creation-container" class="fade-in">
-  <h1 class="heading">{{'Staff Info.'}}</h1>
+  <MainHeading text="Staff Info." />
 
   <FirstSubHeading text="Personal Info." />
 
@@ -159,12 +160,5 @@ const options = [
   margin-left: 40px;
   border-radius: 10px;
   overflow-y: scroll;
-
-  .heading {
-    margin-top: 45px;
-    margin-left: 80px;
-    font-weight: 700;
-    font-size: 23px;
-  }
 }
 </style>
