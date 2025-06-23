@@ -7,6 +7,7 @@ import Home from "./Home.vue";
 import Staff from "./users/Staff.vue";
 import Tutor from "./users/Tutor.vue";
 import StaffCreation from "./users/StaffCreation.vue";
+import Student from "./users/Student.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -19,8 +20,12 @@ const route = useRoute();
 const isHomePath = computed(() => route.path === '/');
 // const isTutorPath = computed(() => currentUrl.value.includes('/tutor')); // This does not work
 const isTutorPath = computed(() => route.path.includes('/users/tutor'));
+
 const isStaffPath = computed(() => route.path.includes('/users/staff'));
 const isCreateStaffPath = computed(() => route.path.includes('/users/create-staff'));
+
+const isStudentPath = computed(() => route.path.includes('/users/students'));
+
 </script>
 
 <template>
@@ -30,9 +35,13 @@ const isCreateStaffPath = computed(() => route.path.includes('/users/create-staf
 
     <section id="main-content-section">
       <Home v-if="isHomePath" />
+
       <Staff v-else-if="isStaffPath" />
-      <Tutor v-else-if="isTutorPath" />
       <StaffCreation v-else-if="isCreateStaffPath" />
+
+      <Tutor v-else-if="isTutorPath" />
+
+      <Student v-else-if="isStudentPath" />
     </section>
   </div>
 </template>
