@@ -121,6 +121,19 @@ const options = [
     <FileInput id="gdprOrDataProtectionConsent" label="GDPR / data protection consent" />
     <FileInput id="deiDeclarations" label="DEI Declarations" />
   </TwoComponentRow>
+
+  <!-- Benefits & Payroll Forms -->
+  <DividingHeader text="Benefits & Payroll Forms" />
+
+  <TwoComponentRow>
+    <FileInput id="pensionPlanForms" label="Pension or retirement plan forms" />
+    <FileInput id="healthInsurance" label="Health insurance enrollment" />
+  </TwoComponentRow>
+
+  <TwoComponentRow>
+    <FileInput id="selfServicePortal" label="Employee Self-service portal registration" />
+    <FileInput id="directDepositAuthorization" label="Direct deposit authorization" />
+  </TwoComponentRow>
 </div>
 </template>
 
