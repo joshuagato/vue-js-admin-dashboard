@@ -80,9 +80,5 @@ const options = [
     font-weight: 700;
     font-size: 23px;
   }
-
-
-
-
 }
 </style>
