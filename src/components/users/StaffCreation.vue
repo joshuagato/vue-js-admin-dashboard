@@ -6,6 +6,8 @@ import TelephoneInput from "../inputs/TelephoneInput.vue";
 import PasswordInput from "../inputs/PasswordInput.vue";
 import DateInput from "../inputs/DateInput.vue";
 import DropDown from "../inputs/DropDown.vue";
+import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
+import DividingHeader from "../headers/DividingHeader.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -38,6 +40,13 @@ const options = [
     <TextInput id="country" label="Country of Residence" />
     <DateInput id="dateOfBirth" label="Date of Birth" />
   </ThreeComponentsRow>
+
+  <TwoComponentsRow>
+    <DropDown id="gender" label="Select Gender" default-option="Select Gender" :options="options" model-value="Select Gender" />
+    <DropDown id="maritalStatus" label="Select Marital Status" default-option="Select Marital Status" :options="options" model-value="Select Marital Status" />
+  </TwoComponentsRow>
+
+  <DividingHeader text="Emergency Contact Info." />
 </div>
 </template>
 
