@@ -108,7 +108,7 @@ const staffList = [
 <style scoped lang="scss">
 #student-container {
   max-width: 100%;
-  height: calc(100vh - 50px - 73px);
+  height: calc(100vh - 73px);
   overflow-y: scroll;
 
   .top-section {
