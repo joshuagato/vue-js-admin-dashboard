@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import DisplayCard from "../DisplayCard.vue";
 import FilterCard from "../FilterCard.vue";
+import SearchInput from "../inputs/SearchInput.vue";
 
 const staffList = [
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
+  { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
 ]
 
 </script>
 
 <template>
-  <article id="staff-container" class="fade-in">
+  <article id="student-container" class="fade-in">
     <section class="top-section">
       <FilterCard filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
@@ -52,19 +53,24 @@ const staffList = [
 
     <section class="bottom-section">
       <article class="head-section">
-        <h1 class="heading">{{'Staff'}}</h1>
-        <router-link to="/users/create-staff">{{'Create Staff'}}</router-link>
+        <h1 class="heading">{{'Student'}}</h1>
+        <router-link to="/users/create-student">{{'Create Student'}}</router-link>
       </article>
 
       <hr />
 
       <article class="mid-section">
         <h1 class="heading">Total Number: {{'200'}}</h1>
-        <FilterCard
-            class="filter-card" filter-title="All Accounts"
-            filter-option1="Option 1" filter-option2="Option 2"
-            filter-option3="Option 3"
-        />
+
+        <div class="filters-section">
+          <FilterCard
+              filter-title="All Accounts"
+              filter-option1="Option 1"
+              filter-option2="Option 2"
+              filter-option3="Option 3"
+          />
+          <SearchInput id="searchStudent" placeholder="Search Student.." />
+        </div>
       </article>
 
       <article class="table-section">
@@ -73,9 +79,9 @@ const staffList = [
             <tr>
               <th style="width: 100px">ID NO</th>
               <th>Full Name</th>
-              <th>Department</th>
-              <th>Role</th>
-              <th style="width: 140px">Date Created</th>
+              <th>Parent</th>
+              <th>Subjects</th>
+              <th style="width: 140px">Curriculum</th>
               <th></th>
             </tr>
           </thead>
@@ -83,9 +89,9 @@ const staffList = [
             <tr v-for="staff in staffList">
               <td style="width: 100px">{{staff.id}}</td>
               <td>{{staff.fullName}}</td>
-              <td>{{ staff.department }}</td>
-              <td>{{staff.role}}</td>
-              <td style="width: 140px">{{staff.dateCreated}}</td>
+              <td>{{ staff.parent }}</td>
+              <td>{{staff.subjects}}</td>
+              <td style="width: 140px">{{staff.curriculum}}</td>
               <td>
                 <button class="view-more">View Staff</button>
                 <button class="activate">Activate</button>
@@ -100,11 +106,17 @@ const staffList = [
 </template>
 
 <style scoped lang="scss">
-#staff-container {
+#student-container {
+  max-width: 100%;
+  height: calc(100vh - 50px - 73px);
+  overflow-y: scroll;
+
   .top-section {
     max-width: 1400px;
     display: flex;
     justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 45px;
   }
 
   .middle-section {
@@ -135,7 +147,7 @@ const staffList = [
         font-size: 20px;
         font-weight: 600;
         padding-top: 28px;
-        margin-bottom: 28px;
+        margin-bottom: 30px;
         margin-left: 45px;
       }
 
@@ -163,6 +175,9 @@ const staffList = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 40px;
+      margin-top: 15px;
+      margin-bottom: 50px;
 
       .heading {
         font-size: 18px;
@@ -170,8 +185,12 @@ const staffList = [
         margin-left: 54px;
       }
 
-      .filter-card {
-        margin-right: 66px;
+      .filters-section {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 65px;
       }
     }
 
