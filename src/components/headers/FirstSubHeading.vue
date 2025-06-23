@@ -12,7 +12,6 @@ defineProps({
 
 <style scoped lang="scss">
 .heading-container {
-
   margin-top: 80px;
   margin-left: 80px;
   margin-bottom: 21px;
