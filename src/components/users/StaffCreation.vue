@@ -8,6 +8,7 @@ import DateInput from "../inputs/DateInput.vue";
 import DropDown from "../inputs/DropDown.vue";
 import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import DividingHeader from "../headers/DividingHeader.vue";
+import FirstSubHeading from "../headers/FirstSubHeading.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -21,7 +22,7 @@ const options = [
 <div id="staff-creation-container" class="fade-in">
   <h1 class="heading">{{'Staff Info.'}}</h1>
 
-  <h3 class="sub-heading">{{'Personal Info.'}}</h3>
+  <FirstSubHeading text="Personal Info." />
 
   <ThreeComponentsRow>
     <TextInput id="firstName" label="First Name" />
@@ -47,6 +48,19 @@ const options = [
   </TwoComponentsRow>
 
   <DividingHeader text="Emergency Contact Info." />
+
+  <ThreeComponentsRow>
+    <TextInput id="ecFirstName" label="First Name" />
+    <TextInput id="ecLastName" label="Last Name" />
+    <TextInput id="relationship" label="Relationship" />
+  </ThreeComponentsRow>
+
+  <TwoComponentsRow>
+    <TelephoneInput id="contactNumber" label="Contact Number" />
+    <EmailInput id="ecEmail" label="Email" />
+  </TwoComponentsRow>
+
+  <DividingHeader text="Identification and Legal Documents" />
 </div>
 </template>
 
@@ -67,13 +81,7 @@ const options = [
     font-size: 23px;
   }
 
-  .sub-heading {
-    font-weight: 700;
-    font-size: 19px;
-    margin-top: 80px;
-    margin-left: 80px;
-    margin-bottom: 21px;
-  }
+
 
 
 }
