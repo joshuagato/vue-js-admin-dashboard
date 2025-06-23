@@ -134,6 +134,15 @@ const options = [
     <FileInput id="selfServicePortal" label="Employee Self-service portal registration" />
     <FileInput id="directDepositAuthorization" label="Direct deposit authorization" />
   </TwoComponentRow>
+
+  <!-- Payment Method -->
+  <DividingHeader text="Benefits & Payroll Forms" />
+
+  <ThreeComponentsRow>
+    <DropDown id="bankName" label="Bank Name" default-option="Select Bank" :options="options" model-value="Select Bank" />
+    <TextInput id="accountNumber" label="Account No" />
+    <TextInput id="accountName" label="Account Name" />
+  </ThreeComponentsRow>
 </div>
 </template>
 
