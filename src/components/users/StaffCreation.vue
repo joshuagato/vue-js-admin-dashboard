@@ -99,12 +99,27 @@ const options = [
 
   <!-- Qualifications and Work Experience -->
   <DividingHeader text="Qualifications and Work Experience" />
+
   <TwoComponentRow>
     <FileInput id="academicCertificated" label="Academic Certificates" />
     <FileInput id="cvResume" label="CV / Resume" />
   </TwoComponentRow>
+
   <TwoComponentRow>
     <FileInput id="proofOfPreviousEmployment" label="Proof of previous employment or reference letters" />
+  </TwoComponentRow>
+
+  <!-- Compliance & Policy Acknowledgements -->
+  <DividingHeader text="Compliance & Policy Acknowledgements" />
+
+  <TwoComponentRow>
+    <FileInput id="acknowledgementOfCompanyPolicies" label="Acknowledgement of company policies" />
+    <FileInput id="healthAndSafetyTrainingCompletion" label="Health & safety training completion" />
+  </TwoComponentRow>
+
+  <TwoComponentRow>
+    <FileInput id="gdprOrDataProtectionConsent" label="GDPR / data protection consent" />
+    <FileInput id="deiDeclarations" label="DEI Declarations" />
   </TwoComponentRow>
 </div>
 </template>
