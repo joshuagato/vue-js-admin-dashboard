@@ -9,6 +9,7 @@ import DropDown from "../inputs/DropDown.vue";
 import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import DividingHeader from "../headers/DividingHeader.vue";
 import FirstSubHeading from "../headers/FirstSubHeading.vue";
+import FileInput from "../inputs/FileInput.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -61,6 +62,20 @@ const options = [
   </TwoComponentsRow>
 
   <DividingHeader text="Identification and Legal Documents" />
+
+  <TwoComponentsRow>
+    <DropDown id="idType" label="Select ID Type" default-option="Select ID Type" :options="options" model-value="Select ID Type" />
+    <FileInput id="uploadID" label="Upload ID" />
+  </TwoComponentsRow>
+
+  <TwoComponentsRow>
+    <FileInput id="uploadWorkPermit" label="Upload Work Permit/VISA" />
+    <TextInput id="nationalInsuranceNumber" label="National Insurance No / SSNIT" />
+  </TwoComponentsRow>
+
+  <TwoComponentsRow>
+    <TextInput id="tinNumber" label="TIN Number" />
+  </TwoComponentsRow>
 </div>
 </template>
 
