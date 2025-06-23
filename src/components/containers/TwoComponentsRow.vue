@@ -14,6 +14,6 @@
   margin-bottom: 40px;
   width: calc(100% - 80px - 80px);
   display: flex;
-  gap: 20px;
+  gap: 80px;
 }
 </style>
