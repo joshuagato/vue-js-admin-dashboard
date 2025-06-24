@@ -12,6 +12,7 @@ import StudentCreation from "./users/StudentCreation.vue";
 import Parent from "./users/Parent.vue";
 import ParentCreation from "./users/ParentCreation.vue";
 import Facilitators from "./users/Facilitators.vue";
+import FacilitatorCreation from "./users/FacilitatorCreation.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -35,6 +36,7 @@ const isParentPath = computed(() => route.path.includes('/users/parents'));
 const isCreateParentPath = computed(() => route.path.includes('/users/create-parent'));
 
 const isFacilitatorPath = computed(() => route.path.includes('/users/facilitators'));
+const isCreateFacilitatorPath = computed(() => route.path.includes('/users/create-facilitator'));
 
 </script>
 
@@ -58,6 +60,7 @@ const isFacilitatorPath = computed(() => route.path.includes('/users/facilitator
       <ParentCreation v-else-if="isCreateParentPath" />
 
       <Facilitators v-else-if="isFacilitatorPath" />
+      <FacilitatorCreation v-else-if="isCreateFacilitatorPath" />
     </section>
   </div>
 </template>
