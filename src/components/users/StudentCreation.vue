@@ -14,6 +14,8 @@ import TwoComponentRow from "../containers/TwoComponentRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 import MainHeading from "../headers/MainHeading.vue";
 import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
+import DropDownLong from "../inputs/DropDownLong.vue";
+import OneComponentRow from "../containers/OneComponentRow.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -51,7 +53,23 @@ const options = [
     <DropDown id="studentType" label="Select Student Type" default-option="Select Student Type" :options="options" model-value="Select Student Type" />
   </ThreeComponentsRow>
 
+  <!-- Learning Preferences -->
+  <DividingHeader text="Learning Preferences" />
+  <OneComponentRow>
+    <DropDownLong id="whenLessons" label="When do you want to have lessons" default-option="Select" :options="options" model-value="Select" />
+  </OneComponentRow>
+  <OneComponentRow>
+    <DropDownLong id="howContacted" label="How to be contacted" default-option="Select" :options="options" model-value="Select" />
+  </OneComponentRow>
+  <OneComponentRow>
+    <DropDownLong id="howHeard" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
+  </OneComponentRow>
 
+  <!-- Additional Info. -->
+  <DividingHeader text="Additional Info." />
+  <OneComponentRow>
+    <DropDownLong id="isParent" label="Are you a Parent" default-option="Yes" :options="options" model-value="Yes" />
+  </OneComponentRow>
 
   <!-- Submit Button -->
   <CreateEntityButton title="Create Student" />
