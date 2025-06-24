@@ -2,16 +2,17 @@
 import DisplayCard from "../DisplayCard.vue";
 import FilterCard from "../FilterCard.vue";
 import SummaryCardsRow from "../containers/SummaryCardsRow.vue";
+import Student from "./Student.vue";
 
 const staffList = [
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
 ]
 
 </script>
@@ -37,8 +38,8 @@ const staffList = [
 
     <section class="bottom-section">
       <article class="head-section">
-        <h1 class="heading">{{'Staff'}}</h1>
-        <router-link to="/users/create-staff">{{'Create Staff'}}</router-link>
+        <h1 class="heading">{{'Parent'}}</h1>
+        <router-link to="/users/create-staff">{{'Create Parent'}}</router-link>
       </article>
 
       <hr />
@@ -57,9 +58,9 @@ const staffList = [
           <thead>
             <tr>
               <th style="width: 100px">ID NO</th>
-              <th>Full Name</th>
-              <th>Department</th>
-              <th>Role</th>
+              <th>Parent Name</th>
+              <th>Student</th>
+              <th>Subjects</th>
               <th style="width: 140px">Date Created</th>
               <th></th>
             </tr>
@@ -67,13 +68,14 @@ const staffList = [
           <tbody>
             <tr v-for="staff in staffList">
               <td style="width: 100px">{{staff.id}}</td>
-              <td>{{staff.fullName}}</td>
-              <td>{{ staff.department }}</td>
+              <td>{{staff.parentName}}</td>
+              <td>{{ staff.student }}</td>
               <td>{{staff.role}}</td>
               <td style="width: 140px">{{staff.dateCreated}}</td>
               <td>
-                <button class="view-more">View Staff</button>
-                <button class="activate">Activate</button>
+                <button class="view-account">View Account</button>
+                <button class="link">Link Child</button>
+                <button class="edit">Edit</button>
                 <button class="deactivate">Deactivate</button>
               </td>
             </tr>
@@ -106,7 +108,7 @@ const staffList = [
   }
 
   .bottom-section {
-    max-width: 1400px;
+    max-width: 1450px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -188,7 +190,7 @@ const staffList = [
           td {
             border-bottom: 1px solid #D9D9D9;
             &:last-child {
-              width: 320px;
+              width: 430px;
               display: flex;
               justify-content: space-between;
 
@@ -202,11 +204,15 @@ const staffList = [
                 cursor: pointer;
               }
 
-              .view-more {
+              .view-account {
                 background-color: #DADADA;
               }
 
-              .activate {
+              .link {
+                background-color: #FFB110A1;
+              }
+
+              .edit {
                 background-color: #9CFFC5;
               }
 
