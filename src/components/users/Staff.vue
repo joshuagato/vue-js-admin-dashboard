@@ -22,7 +22,7 @@ const staffList = [
       <DisplayCard :data-figure="12" data-text="Active Staff" />
       <DisplayCard :data-figure="12" data-text="Deactivated Staff" />
 
-      <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+      <FilterCard class="filter-card" filter-title="All Accounts" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <section class="bottom-section">
