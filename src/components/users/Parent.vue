@@ -20,7 +20,7 @@ const staffList = [
 <template>
   <article id="parent-container" class="fade-in">
     <section class="top-section">
-      <FilterCard class="filter-card" filter-title="All Parent" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+      <FilterCard class="filter-card" filter-title="All Parents" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <section class="middle-section">
