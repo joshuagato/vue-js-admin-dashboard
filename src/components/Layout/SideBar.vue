@@ -94,7 +94,7 @@ onUnmounted(() => {
         <ul>
           <li><router-link to="/users/staff">Staff</router-link></li>
           <li><router-link to="/users/students">Students</router-link></li>
-          <li><router-link to="/users/parent">Parent</router-link></li>
+          <li><router-link to="/users/parents">Parent</router-link></li>
           <li><router-link to="/users/tutors">Tutors</router-link></li>
           <li><router-link to="/users/facilitators">Facilitators</router-link></li>
         </ul>
