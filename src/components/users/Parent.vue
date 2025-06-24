@@ -39,7 +39,7 @@ const staffList = [
     <section class="bottom-section">
       <article class="head-section">
         <h1 class="heading">{{'Parent'}}</h1>
-        <router-link to="/users/create-staff">{{'Create Parent'}}</router-link>
+        <router-link to="/users/create-parent">{{'Create Parent'}}</router-link>
       </article>
 
       <hr />
