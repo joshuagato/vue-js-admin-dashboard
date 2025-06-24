@@ -24,25 +24,25 @@ const staffList = [
     </section>
 
     <div class="middle-section">
-      <SummaryCardsRow class="row">
+      <SummaryCardsRow>
         <DisplayCard :data-figure="124" data-text="Total Students" />
         <DisplayCard :data-figure="124" data-text="Active Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Students" />
         <DisplayCard :data-figure="124" data-text="Private Students" />
       </SummaryCardsRow>
-      <SummaryCardsRow class="row">
+      <SummaryCardsRow>
         <DisplayCard :data-figure="124" data-text="Active Private Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Private Students" />
         <DisplayCard :data-figure="124" data-text="InPerson Students" />
         <DisplayCard :data-figure="124" data-text="Active InPerson Students" />
       </SummaryCardsRow>
-      <SummaryCardsRow class="row">
+      <SummaryCardsRow>
         <DisplayCard :data-figure="124" data-text="Deactivated InPerson Students" />
         <DisplayCard :data-figure="124" data-text="Academy Students" />
         <DisplayCard :data-figure="124" data-text="Active Academy Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Academy Students" />
       </SummaryCardsRow>
-      <SummaryCardsRow class="row">
+      <SummaryCardsRow>
         <DisplayCard :data-figure="124" data-text="School Opportunity" />
         <DisplayCard :data-figure="124" data-text="Active School Opportunity" />
         <DisplayCard :data-figure="124" data-text="Deactivated School Opportunity" />
