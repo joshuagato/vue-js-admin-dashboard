@@ -71,6 +71,19 @@ const options = [
     <DropDownLong id="isParent" label="Are you a Parent" default-option="Yes" :options="options" model-value="Yes" />
   </OneComponentRow>
 
+  <!-- Parent Info. -->
+  <DividingHeader text="Parent Info." />
+  <ThreeComponentsRow>
+    <TextInput id="parFirstName" label="First Name" />
+    <TextInput id="parLastName" label="Last Name" />
+    <TelephoneInput id="parPhoneNumber" label="Phone Number" />
+  </ThreeComponentsRow>
+
+  <TwoComponentsRow>
+    <EmailInput id="email" label="Email" />
+    <PasswordInput id="password" label="Password" />
+  </TwoComponentsRow>
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Student" />
 </div>
