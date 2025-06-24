@@ -3,14 +3,14 @@ import DisplayCard from "../DisplayCard.vue";
 import FilterCard from "../FilterCard.vue";
 
 const staffList = [
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
-  { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
 ]
 
 </script>
@@ -27,8 +27,11 @@ const staffList = [
 
     <section class="bottom-section">
       <article class="head-section">
-        <h1 class="heading">{{'Staff'}}</h1>
-        <router-link to="/users/create-staff">{{'Create Staff'}}</router-link>
+        <div class="menu-items">
+          <router-link to="/users/create-facilitator/schools">{{'Schools'}}</router-link>
+          <router-link to="/users/create-facilitator/academy">{{'Academy'}}</router-link>
+        </div>
+        <router-link to="/users/create-facilitator">{{'Create Facilitator'}}</router-link>
       </article>
 
       <hr />
@@ -36,7 +39,7 @@ const staffList = [
       <article class="mid-section">
         <h1 class="heading">Total Number: {{'200'}}</h1>
         <FilterCard
-            class="filter-card" filter-title="All Accounts"
+            class="filter-card" filter-title="All Schools"
             filter-option1="Option 1" filter-option2="Option 2"
             filter-option3="Option 3"
         />
@@ -47,24 +50,26 @@ const staffList = [
           <thead>
             <tr>
               <th style="width: 100px">ID NO</th>
-              <th>Full Name</th>
-              <th>Department</th>
-              <th>Role</th>
-              <th style="width: 140px">Date Created</th>
+              <th>Facilitator</th>
+              <th>Facilitator Type</th>
+              <th>School</th>
+              <th>Total Students</th>
+              <th style="width: 140px">Date Joined</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="staff in staffList">
               <td style="width: 100px">{{staff.id}}</td>
-              <td>{{staff.fullName}}</td>
-              <td>{{ staff.department }}</td>
-              <td>{{staff.role}}</td>
-              <td style="width: 140px">{{staff.dateCreated}}</td>
+              <td>{{staff.facilitator}}</td>
+              <td>{{ staff.facilitatorType }}</td>
+              <td>{{staff.school}}</td>
+              <td>{{staff.totalStudents}}</td>
+              <td style="width: 140px">{{staff.dateJoined}}</td>
               <td>
-                <button class="view-more">View Staff</button>
-                <button class="activate">Activate</button>
-                <button class="deactivate">Deactivate</button>
+                <button class="view-more">View More</button>
+                <button class="add">Add Student</button>
+                <button class="edit">Edit</button>
               </td>
             </tr>
           </tbody>
@@ -86,7 +91,7 @@ const staffList = [
   }
 
   .bottom-section {
-    max-width: 1400px;
+    max-width: 1500px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -99,16 +104,31 @@ const staffList = [
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      padding-left: 55px;
 
-      .heading {
-        font-size: 20px;
-        font-weight: 600;
-        padding-top: 28px;
-        margin-bottom: 28px;
-        margin-left: 45px;
+      .menu-items {
+        margin-top: 35px;
+        //margin-bottom: 15px;
+
+        a {
+          display: inline-block;
+          text-align: center;
+          font-weight: 500;
+          font-size: 15px;
+          width: 135px;
+          height: 30px;
+          margin-right: 20px;
+          margin-bottom: -1.5px;
+          //background-color: #716F6F;
+          border-bottom: 3px solid #0C7334;
+
+          &:link, &:visited {
+            color: #000;
+          }
+        }
       }
 
-      a {
+      &>a {
         width: 137px;
         height: 36px;
         border-radius: 5px;
@@ -148,6 +168,7 @@ const staffList = [
 
     .table-section {
       margin-left: 54px;
+      margin-right: 54px;
 
       th {
         font-weight: 700;
@@ -186,12 +207,12 @@ const staffList = [
                 background-color: #DADADA;
               }
 
-              .activate {
-                background-color: #9CFFC5;
+              .add {
+                background-color: #FFB110A1;
               }
 
-              .deactivate {
-                background-color: #FE9E9E;
+              .edit {
+                background-color: #9CFFC5;
               }
             }
           }
