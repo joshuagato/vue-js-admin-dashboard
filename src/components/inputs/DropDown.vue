@@ -33,7 +33,7 @@ watch(() => props.modelValue, (newPropValue) => {
 </script>
 
 <template>
-  <article class="text-input">
+  <article class="dropdown-container">
     <label class="label" :for="id">{{label}}</label>
     <select :id="id" v-model="internalValue">
       <option selected :value="defaultOption">{{ defaultOption }}</option>
@@ -43,7 +43,7 @@ watch(() => props.modelValue, (newPropValue) => {
 </template>
 
 <style scoped lang="scss">
-.text-input {
+.dropdown-container {
   display: flex;
   flex-direction: column;
 
