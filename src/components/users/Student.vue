@@ -91,7 +91,7 @@ const staffList = [
               <td>{{staff.subjects}}</td>
               <td style="width: 140px">{{staff.curriculum}}</td>
               <td>
-                <button class="view-more">View Staff</button>
+                <button class="view-more">View Account</button>
                 <button class="activate">Activate</button>
                 <button class="deactivate">Deactivate</button>
               </td>
