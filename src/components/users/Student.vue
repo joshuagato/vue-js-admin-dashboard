@@ -20,7 +20,7 @@ const staffList = [
 <template>
   <article id="student-container" class="fade-in">
     <section class="top-section">
-      <FilterCard filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+      <FilterCard filter-title="All Students" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <div class="middle-section">
