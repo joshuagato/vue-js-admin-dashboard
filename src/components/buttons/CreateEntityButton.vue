@@ -26,6 +26,7 @@ defineProps({
     height: 62px;
     font-size: 23px;
     font-weight: 500;
+    cursor: pointer;
   }
 }
 </style>
