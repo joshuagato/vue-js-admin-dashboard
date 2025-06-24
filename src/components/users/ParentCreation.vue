@@ -26,7 +26,7 @@ const options = [
 </script>
 
 <template>
-<div id="staff-creation-container" class="fade-in">
+<div id="parent-creation-container" class="fade-in">
   <MainAndFirstHeading text="Parent Info." />
 
   <ThreeComponentsRow>
@@ -51,7 +51,7 @@ const options = [
 </template>
 
 <style scoped lang="scss">
-#staff-creation-container {
+#parent-creation-container {
   max-width: 1400px;
   height: calc(100vh - 50px - 73px);
   background-color: #FFFFFF;
