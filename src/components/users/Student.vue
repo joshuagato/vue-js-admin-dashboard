@@ -2,6 +2,7 @@
 import DisplayCard from "../DisplayCard.vue";
 import FilterCard from "../FilterCard.vue";
 import SearchInput from "../inputs/SearchInput.vue";
+import SummaryCardsRow from "../containers/SummaryCardsRow.vue";
 
 const staffList = [
   { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },
@@ -23,32 +24,29 @@ const staffList = [
     </section>
 
     <div class="middle-section">
-      <article class="row">
-
-      </article>
-      <article class="row">
+      <SummaryCardsRow class="row">
         <DisplayCard :data-figure="124" data-text="Total Students" />
         <DisplayCard :data-figure="124" data-text="Active Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Students" />
         <DisplayCard :data-figure="124" data-text="Private Students" />
-      </article>
-      <article class="row">
+      </SummaryCardsRow>
+      <SummaryCardsRow class="row">
         <DisplayCard :data-figure="124" data-text="Active Private Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Private Students" />
         <DisplayCard :data-figure="124" data-text="InPerson Students" />
         <DisplayCard :data-figure="124" data-text="Active InPerson Students" />
-      </article>
-      <article class="row">
+      </SummaryCardsRow>
+      <SummaryCardsRow class="row">
         <DisplayCard :data-figure="124" data-text="Deactivated InPerson Students" />
         <DisplayCard :data-figure="124" data-text="Academy Students" />
         <DisplayCard :data-figure="124" data-text="Active Academy Students" />
         <DisplayCard :data-figure="124" data-text="Deactivated Academy Students" />
-      </article>
-      <article class="row">
+      </SummaryCardsRow>
+      <SummaryCardsRow class="row">
         <DisplayCard :data-figure="124" data-text="School Opportunity" />
         <DisplayCard :data-figure="124" data-text="Active School Opportunity" />
         <DisplayCard :data-figure="124" data-text="Deactivated School Opportunity" />
-      </article>
+      </SummaryCardsRow>
     </div>
 
     <section class="bottom-section">
@@ -121,11 +119,6 @@ const staffList = [
 
   .middle-section {
     max-width: 1400px;
-
-    .row {
-      width: 100%;
-      display: flex;
-    }
   }
 
   .bottom-section {
