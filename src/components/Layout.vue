@@ -10,6 +10,7 @@ import StaffCreation from "./users/StaffCreation.vue";
 import Student from "./users/Student.vue";
 import StudentCreation from "./users/StudentCreation.vue";
 import Parent from "./users/Parent.vue";
+import ParentCreation from "./users/ParentCreation.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -30,6 +31,7 @@ const isStudentPath = computed(() => route.path.includes('/users/students'));
 const isCreateStudentPath = computed(() => route.path.includes('/users/create-student'));
 
 const isParentPath = computed(() => route.path.includes('/users/parents'));
+const isCreateParentPath = computed(() => route.path.includes('/users/create-parent'));
 
 </script>
 
@@ -50,6 +52,7 @@ const isParentPath = computed(() => route.path.includes('/users/parents'));
       <StudentCreation v-else-if="isCreateStudentPath" />
 
       <Parent v-else-if="isParentPath" />
+      <ParentCreation v-else-if="isCreateParentPath" />
     </section>
   </div>
 </template>
