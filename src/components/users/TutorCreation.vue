@@ -17,6 +17,9 @@ import CheckBox from "../inputs/CheckBox.vue";
 import OneComponentRow from "../containers/OneComponentRow.vue";
 import DropDownDouble from "../inputs/DropDownDouble.vue";
 import CheckBoxesContainer from "../containers/CheckBoxesContainer.vue";
+import EmptySpaceDivider from "../headers/EmptySpaceDivider.vue";
+import SubHeading from "../headers/SubHeading.vue";
+import Paragraph from "../headers/Paragraph.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -117,6 +120,32 @@ const options = [
     </CheckBoxesContainer>
   </TwoComponentsRow>
 
+  <EmptySpaceDivider />
+
+  <!-- Select Your Availability -->
+  <SubHeading text="Select Your Availability" />
+  <Paragraph>Please indicate when you’re available for lessons such as Inperson Lessons, Private Lessons, Academy and
+    School Opportunity.</Paragraph>
+
+  <TwoComponentsRow two-one>
+    <div class="checkboxes-container">
+      <article>
+        <h4>Job</h4>
+        <label for="private">Private Lesson</label>
+        <label for="inPerson">InPerson Lesson</label>
+        <label for="academy">Academy Lesson</label>
+        <label for="school">School Opportunities</label>
+      </article>
+      <article>
+        <h4>Your Availability</h4>
+        <input type="checkbox" id="private">
+        <input type="checkbox" id="inPerson">
+        <input type="checkbox" id="academy">
+        <input type="checkbox" id="school">
+      </article>
+    </div>
+  </TwoComponentsRow>
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
 </div>
@@ -131,5 +160,26 @@ const options = [
   margin-left: 40px;
   border-radius: 10px;
   overflow-y: scroll;
+}
+
+.checkboxes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h4 {
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    input, label {
+      margin-bottom: 15px;
+    }
+  }
 }
 </style>
