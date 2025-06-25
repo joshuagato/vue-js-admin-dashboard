@@ -77,7 +77,7 @@ watch(() => props.modelValue, (newPropValue) => {
   }
 
   input {
-    width: 465px;
+    //width: 465px;
     height: 68px;
     padding-left: 15px;
     padding-top: 18px;

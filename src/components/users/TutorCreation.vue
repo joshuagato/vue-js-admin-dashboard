@@ -15,6 +15,7 @@ import MainHeading from "../headers/MainHeading.vue";
 import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
 import DropDownLong from "../inputs/DropDownLong.vue";
 import OneComponentRow from "../containers/OneComponentRow.vue";
+import DropDownDouble from "../inputs/DropDownDouble.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -25,8 +26,8 @@ const options = [
 </script>
 
 <template>
-<div id="student-creation-container" class="fade-in">
-  <MainAndFirstHeading text="Student Info." />
+<div id="facilitator-creation-container" class="fade-in">
+  <MainAndFirstHeading text="Tutor Info." />
 
   <ThreeComponentsRow>
     <TextInput id="firstName" label="First Name" />
@@ -46,50 +47,56 @@ const options = [
     <DropDown id="gender" label="Select Gender" default-option="Select Gender" :options="options" model-value="Select Gender" />
   </ThreeComponentsRow>
 
-  <ThreeComponentsRow>
+  <TwoComponentsRow>
     <TextInput id="country" label="Country of Residence" />
-    <DropDown id="curriculum" label="Select Curriculum" default-option="Select Curriculum" :options="options" model-value="Select Curriculum" />
-    <DropDown id="studentType" label="Select Student Type" default-option="Select Student Type" :options="options" model-value="Select Student Type" />
-  </ThreeComponentsRow>
+    <DropDown id="criminalConvictions" label="Do you have any Criminal Conviction ?" default-option="Select" :options="options" model-value="Select" />
+  </TwoComponentsRow>
 
-  <!-- Learning Preferences -->
-  <DividingHeader text="Learning Preferences" />
   <OneComponentRow>
-    <DropDownLong id="whenLessons" label="When do you want to have lessons" default-option="Select" :options="options" model-value="Select" />
-  </OneComponentRow>
-  <OneComponentRow>
-    <DropDownLong id="howContacted" label="How to be contacted" default-option="Select" :options="options" model-value="Select" />
-  </OneComponentRow>
-  <OneComponentRow>
-    <DropDownLong id="howHeard" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
+    <DropDown id="heardAboutUs" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
   </OneComponentRow>
 
-  <!-- Additional Info. -->
-  <DividingHeader text="Additional Info." />
-  <OneComponentRow>
-    <DropDownLong id="isParent" label="Are you a Parent" default-option="Yes" :options="options" model-value="Yes" />
-  </OneComponentRow>
+  <!-- Accreditation & Verification -->
+  <TwoComponentsRow>
+    <FileInput id="uploadResume" label="Upload Resume" />
+    <FileInput id="uploadPassportID" label="Upload Passport / ID" />
+  </TwoComponentsRow>
 
-  <!-- Parent Info. -->
-  <DividingHeader text="Parent Info." />
+  <!-- References -->
+  <DividingHeader text="References" />
+
   <ThreeComponentsRow>
-    <TextInput id="parFirstName" label="First Name" />
-    <TextInput id="parLastName" label="Last Name" />
-    <TelephoneInput id="parPhoneNumber" label="Phone Number" />
+    <TextInput id="nameofReference1" label="Name of Reference 1" />
+    <TextInput id="ref1Role" label="Role" />
+    <TextInput id="ref1Institution" label="Institution" />
   </ThreeComponentsRow>
 
   <TwoComponentsRow>
-    <EmailInput id="email" label="Email" />
-    <PasswordInput id="password" label="Password" />
+    <EmailInput id="ref1Email" label="Email" />
+    <TelephoneInput id="ref1PhoneNumber" label="Phone Number" />
   </TwoComponentsRow>
 
+  <ThreeComponentsRow>
+    <TextInput id="nameofReference2" label="Name of Reference 2" />
+    <TextInput id="ref2Role" label="Role" />
+    <TextInput id="ref2Institution" label="Institution" />
+  </ThreeComponentsRow>
+
+  <TwoComponentsRow>
+    <EmailInput id="ref2Email" label="Email" />
+    <TelephoneInput id="ref2PhoneNumber" label="Phone Number" />
+  </TwoComponentsRow>
+
+  <!-- Bio & Profile Info. -->
+  <DividingHeader text="Bio & Profile Info." />
+
   <!-- Submit Button -->
-  <CreateEntityButton title="Create Student" />
+  <CreateEntityButton title="Create Tutor" />
 </div>
 </template>
 
 <style scoped lang="scss">
-#student-creation-container {
+#facilitator-creation-container {
   max-width: 1400px;
   height: calc(100vh - 50px - 73px);
   background-color: #FFFFFF;

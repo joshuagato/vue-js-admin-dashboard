@@ -6,11 +6,10 @@ import TelephoneInput from "../inputs/TelephoneInput.vue";
 import PasswordInput from "../inputs/PasswordInput.vue";
 import DateInput from "../inputs/DateInput.vue";
 import DropDown from "../inputs/DropDown.vue";
-import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import DividingHeader from "../headers/DividingHeader.vue";
 import FirstSubHeading from "../headers/FirstSubHeading.vue";
 import FileInput from "../inputs/FileInput.vue";
-import TwoComponentRow from "../containers/TwoComponentRow.vue";
+import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 import MainHeading from "../headers/MainHeading.vue";
 
@@ -85,57 +84,57 @@ const options = [
   <!-- Employment Documents -->
   <DividingHeader text="Employment Documents" />
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="signedContractOfEmployment" label="Signed Contract of Employment" />
     <FileInput id="nonDisclosureAgreement" label="Non-disclosure Agreement (NDA)" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="intellectualPropertyAgreement" label="Intellectual property agreement" />
     <FileInput id="jobDescriptionConfirmation" label="Job description confirmation" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="backgroundCheck" label="Background check" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
   <!-- Qualifications and Work Experience -->
   <DividingHeader text="Qualifications and Work Experience" />
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="academicCertificated" label="Academic Certificates" />
     <FileInput id="cvResume" label="CV / Resume" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="proofOfPreviousEmployment" label="Proof of previous employment or reference letters" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
   <!-- Compliance & Policy Acknowledgements -->
   <DividingHeader text="Compliance & Policy Acknowledgements" />
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="acknowledgementOfCompanyPolicies" label="Acknowledgement of company policies" />
     <FileInput id="healthAndSafetyTrainingCompletion" label="Health & safety training completion" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="gdprOrDataProtectionConsent" label="GDPR / data protection consent" />
     <FileInput id="deiDeclarations" label="DEI Declarations" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
   <!-- Benefits & Payroll Forms -->
   <DividingHeader text="Benefits & Payroll Forms" />
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="pensionPlanForms" label="Pension or retirement plan forms" />
     <FileInput id="healthInsurance" label="Health insurance enrollment" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
-  <TwoComponentRow>
+  <TwoComponentsRow>
     <FileInput id="selfServicePortal" label="Employee Self-service portal registration" />
     <FileInput id="directDepositAuthorization" label="Direct deposit authorization" />
-  </TwoComponentRow>
+  </TwoComponentsRow>
 
   <!-- Payment Method -->
   <DividingHeader text="Benefits & Payroll Forms" />

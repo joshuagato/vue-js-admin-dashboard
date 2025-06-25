@@ -10,7 +10,6 @@ import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import DividingHeader from "../headers/DividingHeader.vue";
 import FirstSubHeading from "../headers/FirstSubHeading.vue";
 import FileInput from "../inputs/FileInput.vue";
-import TwoComponentRow from "../containers/TwoComponentRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 import MainHeading from "../headers/MainHeading.vue";
 import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";

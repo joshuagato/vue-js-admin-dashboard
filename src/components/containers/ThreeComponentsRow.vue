@@ -13,7 +13,10 @@
   margin-left: 80px;
   margin-bottom: 40px;
   width: calc(100% - 80px - 80px);
-  display: flex;
-  justify-content: space-between;
+  //display: flex;
+  //justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 }
 </style>
