@@ -47,7 +47,7 @@ const options = [
     <DropDown id="gender" label="Select Gender" default-option="Select Gender" :options="options" model-value="Select Gender" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <TwoComponentsRow one-two>
     <TextInput id="country" label="Country of Residence" />
     <DropDown id="criminalConvictions" label="Do you have any Criminal Conviction ?" default-option="Select" :options="options" model-value="Select" />
   </TwoComponentsRow>
@@ -71,10 +71,10 @@ const options = [
     <TextInput id="ref1Institution" label="Institution" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <ThreeComponentsRow>
     <EmailInput id="ref1Email" label="Email" />
     <TelephoneInput id="ref1PhoneNumber" label="Phone Number" />
-  </TwoComponentsRow>
+  </ThreeComponentsRow>
 
   <ThreeComponentsRow>
     <TextInput id="nameofReference2" label="Name of Reference 2" />
@@ -82,10 +82,10 @@ const options = [
     <TextInput id="ref2Institution" label="Institution" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <ThreeComponentsRow>
     <EmailInput id="ref2Email" label="Email" />
     <TelephoneInput id="ref2PhoneNumber" label="Phone Number" />
-  </TwoComponentsRow>
+  </ThreeComponentsRow>
 
   <!-- Bio & Profile Info. -->
   <DividingHeader text="Bio & Profile Info." />

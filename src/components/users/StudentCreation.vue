@@ -78,10 +78,10 @@ const options = [
     <TelephoneInput id="parPhoneNumber" label="Phone Number" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <ThreeComponentsRow>
     <EmailInput id="email" label="Email" />
     <PasswordInput id="password" label="Password" />
-  </TwoComponentsRow>
+  </ThreeComponentsRow>
 
   <!-- Submit Button -->
   <CreateEntityButton title="Create Student" />

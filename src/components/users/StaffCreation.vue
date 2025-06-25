@@ -45,10 +45,10 @@ const options = [
     <DateInput id="dateOfBirth" label="Date of Birth" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <ThreeComponentsRow>
     <DropDown id="gender" label="Select Gender" default-option="Select Gender" :options="options" model-value="Select Gender" />
     <DropDown id="maritalStatus" label="Select Marital Status" default-option="Select Marital Status" :options="options" model-value="Select Marital Status" />
-  </TwoComponentsRow>
+  </ThreeComponentsRow>
 
   <!-- Emergency Contact Info. -->
   <DividingHeader text="Emergency Contact Info." />
@@ -59,10 +59,10 @@ const options = [
     <TextInput id="relationship" label="Relationship" />
   </ThreeComponentsRow>
 
-  <TwoComponentsRow>
+  <ThreeComponentsRow>
     <TelephoneInput id="contactNumber" label="Contact Number" />
     <EmailInput id="ecEmail" label="Email" />
-  </TwoComponentsRow>
+  </ThreeComponentsRow>
 
   <!-- Identification and Legal Documents -->
   <DividingHeader text="Identification and Legal Documents" />
