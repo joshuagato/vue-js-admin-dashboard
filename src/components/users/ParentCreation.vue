@@ -13,7 +13,7 @@ import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 import MainHeading from "../headers/MainHeading.vue";
 import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
-import DropDownLong from "../inputs/DropDownLong.vue";
+import CheckBox from "../inputs/CheckBox.vue";
 import OneComponentRow from "../containers/OneComponentRow.vue";
 
 const options = [
