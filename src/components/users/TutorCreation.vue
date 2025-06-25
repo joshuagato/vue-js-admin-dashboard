@@ -255,26 +255,26 @@ at my high school in Surrey and received the science scholarship from the years 
     margin-bottom: 15px;
   }
 
+  textarea {
+    font-weight: 400;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    font-size: 17px;
+  }
+
   textarea#experience {
     width: 950px;
     height: 315px;
     border: 3px solid #716F6F;
-    border-radius: 10px;
-    resize: none;
   }
 
   textarea.other-text-areas {
     width: 1050px;
     border: 1px solid #EDEDED;
-    border-radius: 10px;
-    resize: none;
     background-color: #EDEDED;
-    padding: 10px;
-    font-weight: 400;
-    font-size: 17px;
 
     &::placeholder {
-      font-weight: 400;
       font-size: 17px;
       padding-top: 30px;
       text-align: left;
