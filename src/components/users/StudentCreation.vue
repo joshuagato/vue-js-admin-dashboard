@@ -55,19 +55,19 @@ const options = [
   <!-- Learning Preferences -->
   <DividingHeader text="Learning Preferences" />
   <OneComponentRow>
-    <DropDownLong id="whenLessons" label="When do you want to have lessons" default-option="Select" :options="options" model-value="Select" />
+    <DropDown id="whenLessons" label="When do you want to have lessons" default-option="Select" :options="options" model-value="Select" />
   </OneComponentRow>
   <OneComponentRow>
-    <DropDownLong id="howContacted" label="How to be contacted" default-option="Select" :options="options" model-value="Select" />
+    <DropDown id="howContacted" label="How to be contacted" default-option="Select" :options="options" model-value="Select" />
   </OneComponentRow>
   <OneComponentRow>
-    <DropDownLong id="howHeard" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
+    <DropDown id="howHeard" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
   </OneComponentRow>
 
   <!-- Additional Info. -->
   <DividingHeader text="Additional Info." />
   <OneComponentRow>
-    <DropDownLong id="isParent" label="Are you a Parent" default-option="Yes" :options="options" model-value="Yes" />
+    <DropDown id="isParent" label="Are you a Parent" default-option="Yes" :options="options" model-value="Yes" />
   </OneComponentRow>
 
   <!-- Parent Info. -->

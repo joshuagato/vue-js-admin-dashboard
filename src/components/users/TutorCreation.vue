@@ -90,6 +90,20 @@ const options = [
   <!-- Bio & Profile Info. -->
   <DividingHeader text="Bio & Profile Info." />
 
+  <TwoComponentsRow two-one>
+    <FileInput id="profilePicture" label="Upload Profile Picture" />
+  </TwoComponentsRow>
+
+  <TwoComponentsRow>
+    <section>
+      <h3>Select Subject(s)</h3>
+      <article>
+        <input id="biology" type="checkbox" value="Biology" />
+        <label for="biology">Biology</label>
+      </article>
+    </section>
+  </TwoComponentsRow>
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
 </div>

@@ -13,8 +13,6 @@
   margin-left: 80px;
   margin-bottom: 40px;
   width: calc(100% - 80px - 80px);
-  //display: flex;
-  //gap: 80px;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
