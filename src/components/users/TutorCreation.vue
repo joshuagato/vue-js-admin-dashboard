@@ -146,6 +146,20 @@ const options = [
     </div>
   </TwoComponentsRow>
 
+  <EmptySpaceDivider />
+
+  <TwoComponentsRow>
+    <CheckBoxesContainer heading="Select Qualification">
+      <CheckBox id="aLevel" label="A Level Certificate" />
+      <CheckBox id="aLevelProof" label="A Level Proof of Enrolment" />
+      <CheckBox id="associateDegree" label="Associate Degree Certificate (College/ Technical School)" />
+      <CheckBox id="associateDegreeProof" label="Associate Degree Proof of Enrolment (College/ Technical School)" />
+      <CheckBox id="bachelor" label="Bachelor’s Degree Certificate" />
+      <CheckBox id="master" label="Masters Certificate" />
+      <CheckBox id="phd" label="PHD Certificate" />
+    </CheckBoxesContainer>
+  </TwoComponentsRow>
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
 </div>
