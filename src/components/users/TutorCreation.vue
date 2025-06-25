@@ -190,7 +190,7 @@ const options = [
 
   <EmptySpaceDivider />
 
-  <!--  Short bio section-->
+  <!--  Short bio Section-->
   <OneComponentRow two-one>
     <HeadingAndParagraph heading="Short bio"
                          paragraph="Write in two sentences, a short bio describing yourself"
@@ -198,9 +198,26 @@ const options = [
   </OneComponentRow>
 
   <OneComponentRow two-one>
-    <textarea class="other-text-areas" placeholder="My name is Laura and I am a masters student at King's College London. I was the Deputy Head Girl
+    <textarea id="bio" class="other-text-areas" placeholder="My name is Laura and I am a masters student at King's College London. I was the Deputy Head Girl
 at my high school in Surrey and received the science scholarship from the years 2013-2015."></textarea>
   </OneComponentRow>
+
+  <EmptySpaceDivider />
+
+  <!--  About Me Section-->
+  <OneComponentRow two-one>
+    <HeadingAndParagraph
+        heading="About Me"
+        paragraph="Introduce yourself to students! What sets you apart? Share your passion for your
+        field of study and explain how you can help students grow and succeed. (Max 1500 characters)"
+    />
+  </OneComponentRow>
+
+  <OneComponentRow two-one>
+    <textarea id="about" class="other-text-areas" placeholder="My name is Laura and I am a masters student at King's College London. I was the Deputy Head Girl at my high school in Surrey and received the science scholarship from the years 2013-2015. Following this, I completed my undergraduate degree at the University of Toronto with a distinction in Biochemistry, Pharmacology and Spanish. I am pursuing my masters degree in Clinical Pharmacology, as I am deeply interested in improving how patients manage therapies. However, when I attended high school, I had thoroughly enjoyed going to my Biology and Chemistry classes. Many students find these subjects particularly overwhelming due to the fact that there is simply too much information to learn all at once. In order to achieve As at both IGCSE and A Level Biology, I had come up with a few ways to make what may seem to be a terrifyingly difficult subject much easier to handle. I am a firm believer in repetition being the motherhood of learning, therefore with all my teaching slides I begin with a recap of what was learnt last week. By reinforcing this knowledge frequently, the long biological and chemical processes will all of a sudden become second nature to you! I am very open to adapting my teaching techniques to suit each student as I am aware that every student has a different way of learning. With my strong knowledge of the curriculum (as I had completed it not too long ago) and my passion for the sciences I truly believe that we can get these As together!"></textarea>
+  </OneComponentRow>
+
+  <EmptySpaceDivider />
 
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
@@ -234,7 +251,6 @@ at my high school in Surrey and received the science scholarship from the years 
 
   textarea.other-text-areas {
     width: 1050px;
-    height: 145px;
     border: 1px solid #EDEDED;
     border-radius: 10px;
     resize: none;
@@ -246,9 +262,24 @@ at my high school in Surrey and received the science scholarship from the years 
     &::placeholder {
       font-weight: 400;
       font-size: 17px;
-      line-height: 30px;
       padding-top: 30px;
-      padding-left: 10px;
+      text-align: left
+    }
+  }
+
+  textarea#bio {
+    height: 145px;
+
+    &::placeholder {
+      line-height: 30px;
+    }
+  }
+
+  textarea#about {
+    height: 550px;
+
+    &::placeholder {
+      line-height: 31px;
     }
   }
 }
