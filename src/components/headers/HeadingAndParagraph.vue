@@ -25,7 +25,7 @@ defineProps({
 
   .paragraph {
     font-weight: 500;
-    font-size: 17px;
+    font-size: 20px;
   }
 }
 </style>
