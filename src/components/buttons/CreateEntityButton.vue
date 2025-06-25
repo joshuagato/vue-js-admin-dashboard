@@ -21,6 +21,7 @@ defineProps({
 
   .create-button {
     border: none;
+    border-radius: 5px;
     background-color: #9CFFC5;
     width: 215px;
     height: 62px;
