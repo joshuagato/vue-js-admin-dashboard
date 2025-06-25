@@ -20,6 +20,7 @@ import CheckBoxesContainer from "../containers/CheckBoxesContainer.vue";
 import EmptySpaceDivider from "../headers/EmptySpaceDivider.vue";
 import SubHeading from "../headers/SubHeading.vue";
 import Paragraph from "../headers/Paragraph.vue";
+import HeadingAndParagraph from "../headers/HeadingAndParagraph.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -30,7 +31,7 @@ const options = [
 </script>
 
 <template>
-<div id="facilitator-creation-container" class="fade-in">
+<div id="tutor-creation-container" class="fade-in">
   <MainAndFirstHeading text="Tutor Info." />
 
   <ThreeComponentsRow>
@@ -56,7 +57,7 @@ const options = [
     <DropDown id="criminalConvictions" label="Do you have any Criminal Conviction ?" default-option="Select" :options="options" model-value="Select" />
   </TwoComponentsRow>
 
-  <OneComponentRow>
+  <OneComponentRow two-one>
     <DropDown id="heardAboutUs" label="How did you hear about us" default-option="Select" :options="options" model-value="Select" />
   </OneComponentRow>
 
@@ -160,13 +161,54 @@ const options = [
     </CheckBoxesContainer>
   </TwoComponentsRow>
 
+  <EmptySpaceDivider />
+
+  <TwoComponentsRow two-one>
+    <FileInput id="proofOfQualification" label="Proof of Qualification" />
+    <TextInput id="currentPosition" label="Current Position" />
+  </TwoComponentsRow>
+
+  <EmptySpaceDivider />
+
+  <OneComponentRow>
+    <div>
+      <h5>Your Experience</h5>
+      <textarea id="experience"></textarea>
+    </div>
+  </OneComponentRow>
+
+  <EmptySpaceDivider />
+
+  <OneComponentRow two-one>
+    <HeadingAndParagraph heading="Video Profile"
+                         paragraph="Video Profile associated with your profile. Take a 2 Mins video in either Landscape or Portrait and
+      upload it here. Make it count! Don’t worry, you can change it any time."
+    />
+  </OneComponentRow>
+
+  <!--  Work here-->
+
+  <EmptySpaceDivider />
+
+  <!--  Short bio section-->
+  <OneComponentRow two-one>
+    <HeadingAndParagraph heading="Short bio"
+                         paragraph="Write in two sentences, a short bio describing yourself"
+    />
+  </OneComponentRow>
+
+  <OneComponentRow two-one>
+    <textarea class="other-text-areas" placeholder="My name is Laura and I am a masters student at King's College London. I was the Deputy Head Girl
+at my high school in Surrey and received the science scholarship from the years 2013-2015."></textarea>
+  </OneComponentRow>
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
 </div>
 </template>
 
 <style scoped lang="scss">
-#facilitator-creation-container {
+#tutor-creation-container {
   max-width: 1400px;
   height: calc(100vh - 50px - 73px);
   background-color: #FFFFFF;
@@ -174,6 +216,41 @@ const options = [
   margin-left: 40px;
   border-radius: 10px;
   overflow-y: scroll;
+
+  h5 {
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+  }
+
+  textarea#experience {
+    width: 950px;
+    height: 315px;
+    border: 3px solid #716F6F;
+    border-radius: 10px;
+    resize: none;
+  }
+
+  textarea.other-text-areas {
+    width: 1050px;
+    height: 145px;
+    border: 1px solid #EDEDED;
+    border-radius: 10px;
+    resize: none;
+    background-color: #EDEDED;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 17px;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 30px;
+      padding-top: 30px;
+      padding-left: 10px;
+    }
+  }
 }
 
 .checkboxes-container {
