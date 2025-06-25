@@ -219,6 +219,20 @@ at my high school in Surrey and received the science scholarship from the years 
 
   <EmptySpaceDivider />
 
+  <!--  About My Session Section-->
+  <OneComponentRow two-one>
+    <HeadingAndParagraph
+        heading="About My Session"
+        paragraph="Write in two sentences, a short bio describing yourself"
+    />
+  </OneComponentRow>
+
+  <OneComponentRow two-one>
+    <textarea id="session" class="other-text-areas" placeholder="My name is Laura and I am a masters student at King's College London. I was the Deputy Head Girl at my high school in Surrey and received the science scholarship from the years 2013-2015. Following this, I completed my undergraduate degree at the University of Toronto with a distinction in Biochemistry, Pharmacology and Spanish. I am pursuing my masters degree in Clinical Pharmacology, as I am deeply interested in improving how patients manage therapies. However, when I attended high school, I had thoroughly enjoyed going to my Biology and Chemistry classes. Many students find these subjects particularly overwhelming due to the fact that there is simply too much information to learn all at once. In order to achieve A*s at both IGCSE and A Level Biology, I had come up with a few ways to make what may seem to be a terrifyingly difficult subject much easier to handle. I am a firm believer in repetition being the motherhood of learning, therefore with all my teaching slides I begin with a recap of what was learnt last week"></textarea>
+  </OneComponentRow>
+
+  <EmptySpaceDivider />
+
   <!-- Submit Button -->
   <CreateEntityButton title="Create Tutor" />
 </div>
@@ -263,24 +277,21 @@ at my high school in Surrey and received the science scholarship from the years 
       font-weight: 400;
       font-size: 17px;
       padding-top: 30px;
-      text-align: left
+      text-align: left;
+      line-height: 31px;
     }
   }
 
   textarea#bio {
     height: 145px;
-
-    &::placeholder {
-      line-height: 30px;
-    }
   }
 
   textarea#about {
     height: 550px;
+  }
 
-    &::placeholder {
-      line-height: 31px;
-    }
+  textarea#session {
+    height: 415px;
   }
 }
 
