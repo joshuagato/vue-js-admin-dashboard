@@ -13,9 +13,10 @@ import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
 import CreateEntityButton from "../buttons/CreateEntityButton.vue";
 import MainHeading from "../headers/MainHeading.vue";
 import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
-import DropDownLong from "../inputs/DropDownLong.vue";
+import CheckBox from "../inputs/CheckBox.vue";
 import OneComponentRow from "../containers/OneComponentRow.vue";
 import DropDownDouble from "../inputs/DropDownDouble.vue";
+import CheckBoxesContainer from "../containers/CheckBoxesContainer.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },
@@ -95,13 +96,25 @@ const options = [
   </TwoComponentsRow>
 
   <TwoComponentsRow>
-    <section>
-      <h3>Select Subject(s)</h3>
-      <article>
-        <input id="biology" type="checkbox" value="Biology" />
-        <label for="biology">Biology</label>
-      </article>
-    </section>
+    <CheckBoxesContainer heading="Select Subject(s)">
+      <CheckBox id="biology" label="Biology" />
+      <CheckBox id="chemistry" label="Chemistry" />
+      <CheckBox id="communityHealth" label="Community Health" />
+      <CheckBox id="crs" label="Christian Religious Studies" />
+      <CheckBox id="cs" label="Computer Science" />
+      <CheckBox id="english" label="English" />
+      <CheckBox id="mathematics" label="Mathematics" />
+      <CheckBox id="science" label="Science" />
+    </CheckBoxesContainer>
+
+    <CheckBoxesContainer heading="Select Level(s)">
+      <CheckBox id="belowTen" label="10 Years & Below" />
+      <CheckBox id="elevenPlus" label="11 Plus" />
+      <CheckBox id="thirteenPlus" label="13 Plus" />
+      <CheckBox id="bece" label="BECE" />
+      <CheckBox id="gcse" label="GCSE" />
+      <CheckBox id="novDec" label="NOVDEC" />
+    </CheckBoxesContainer>
   </TwoComponentsRow>
 
   <!-- Submit Button -->
