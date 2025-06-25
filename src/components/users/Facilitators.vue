@@ -28,8 +28,8 @@ const staffList = [
     <section class="bottom-section">
       <article class="head-section">
         <div class="menu-items">
-          <router-link to="/users/create-facilitator/schools">{{'Schools'}}</router-link>
-          <router-link to="/users/create-facilitator/academy">{{'Academy'}}</router-link>
+          <router-link to="/users/facilitators/schools">{{'Schools'}}</router-link>
+          <router-link to="/users/facilitators/academy">{{'Academy'}}</router-link>
         </div>
         <router-link to="/users/create-facilitator">{{'Create Facilitator'}}</router-link>
       </article>
