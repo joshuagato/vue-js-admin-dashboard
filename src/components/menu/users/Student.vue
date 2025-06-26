@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import DisplayCard from "../DisplayCard.vue";
-import FilterCard from "../FilterCard.vue";
-import SearchInput from "../inputs/SearchInput.vue";
-import SummaryCardsRow from "../containers/SummaryCardsRow.vue";
+import DisplayCard from "../../DisplayCard.vue";
+import FilterCard from "../../FilterCard.vue";
+import SearchInput from "../../inputs/SearchInput.vue";
+import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
 
 const staffList = [
   { id: 'VT002123', fullName: 'Karen Okyere', parent: 'Yaa Okyere', subjects: 'Mathematics', curriculum: 'BECE' },

@@ -1,45 +1,52 @@
 <script setup lang="ts">
-import DisplayCard from "../DisplayCard.vue";
-import FilterCard from "../FilterCard.vue";
+import DisplayCard from "../../DisplayCard.vue";
+import FilterCard from "../../FilterCard.vue";
+import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
+import Student from "./Student.vue";
 
-const staffList = [
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
-  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+const list = [
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
 ]
 
 </script>
 
 <template>
-  <article id="staff-container" class="fade-in">
+  <article id="parent-container" class="fade-in">
     <section class="top-section">
-      <DisplayCard :data-figure="124" data-text="Total Facilitators" />
-      <DisplayCard :data-figure="12" data-text="Active Facilitators" />
-      <DisplayCard :data-figure="12" data-text="Deactivated Facilitators" />
-
       <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+    </section>
+
+    <section class="middle-section">
+      <SummaryCardsRow>
+        <DisplayCard :data-figure="124" data-text="Total Tutors" />
+        <DisplayCard :data-figure="124" data-text="Active Tutors" />
+        <DisplayCard :data-figure="124" data-text="Deactivated Tutors" />
+        <DisplayCard :data-figure="124" data-text="Pending Tutors" />
+      </SummaryCardsRow>
     </section>
 
     <section class="bottom-section">
       <article class="head-section">
         <div class="menu-items">
-          <router-link to="/users/facilitators/schools">{{'Schools'}}</router-link>
-          <router-link to="/users/facilitators/academy">{{'Academy'}}</router-link>
+          <router-link to="/users/tutors/schools">{{'Tutors'}}</router-link>
+          <router-link to="/users/tutors/academy">{{'Pending Tutors'}}</router-link>
         </div>
-        <router-link to="/users/create-facilitator">{{'Create Facilitator'}}</router-link>
+        <router-link to="/users/create-tutor">{{'Create Tutor'}}</router-link>
       </article>
 
       <hr />
 
       <article class="mid-section">
-        <h1 class="heading">Total Number: {{'200'}}</h1>
+<!--        <h1 class="heading">Total Number: {{'200'}}</h1>-->
         <FilterCard
-            class="filter-card" filter-title="All Schools"
+            class="filter-card" filter-title="All Tutors"
             filter-option1="Option 1" filter-option2="Option 2"
             filter-option3="Option 3"
         />
@@ -50,26 +57,24 @@ const staffList = [
           <thead>
             <tr>
               <th style="width: 100px">ID NO</th>
-              <th>Facilitator</th>
-              <th>Facilitator Type</th>
-              <th>School</th>
-              <th>Total Students</th>
-              <th style="width: 140px">Date Joined</th>
+              <th>Tutor's Name</th>
+              <th>Subjects</th>
+              <th>Curriculum</th>
+              <th style="width: 140px">Date</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="staff in staffList">
-              <td style="width: 100px">{{staff.id}}</td>
-              <td>{{staff.facilitator}}</td>
-              <td>{{ staff.facilitatorType }}</td>
-              <td>{{staff.school}}</td>
-              <td>{{staff.totalStudents}}</td>
-              <td style="width: 140px">{{staff.dateJoined}}</td>
+            <tr v-for="{id, name, subjects, curriculum, date} in list">
+              <td style="width: 100px">{{id}}</td>
+              <td>{{name}}</td>
+              <td>{{ subjects }}</td>
+              <td>{{curriculum}}</td>
+              <td style="width: 140px">{{date}}</td>
               <td>
-                <button class="view-more">View More</button>
-                <button class="add">Add Student</button>
+                <button class="view-account">View Account</button>
                 <button class="edit">Edit</button>
+                <button class="deactivate">Deactivate</button>
               </td>
             </tr>
           </tbody>
@@ -80,9 +85,15 @@ const staffList = [
 </template>
 
 <style scoped lang="scss">
-#staff-container {
+#parent-container {
+  max-width: 100%;
+  height: calc(100vh - 73px);
+  overflow-y: scroll;
+
   .top-section {
+    max-width: 1400px;
     display: flex;
+    justify-content: flex-end;
 
     .filter-card {
       margin-top: 30px;
@@ -90,8 +101,12 @@ const staffList = [
     }
   }
 
+  .middle-section {
+    max-width: 1400px;
+  }
+
   .bottom-section {
-    max-width: 1500px;
+    max-width: 1400px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -150,7 +165,7 @@ const staffList = [
 
     .mid-section {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       margin-top: 15px;
       margin-bottom: 50px;
@@ -168,7 +183,6 @@ const staffList = [
 
     .table-section {
       margin-left: 54px;
-      margin-right: 54px;
 
       th {
         font-weight: 700;
@@ -203,16 +217,20 @@ const staffList = [
                 cursor: pointer;
               }
 
-              .view-more {
+              .view-account {
                 background-color: #DADADA;
               }
 
-              .add {
+              .link {
                 background-color: #FFB110A1;
               }
 
               .edit {
                 background-color: #9CFFC5;
+              }
+
+              .deactivate {
+                background-color: #FE9E9E;
               }
             }
           }

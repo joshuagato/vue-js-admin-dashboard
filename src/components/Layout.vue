@@ -4,16 +4,16 @@ import { useRoute } from 'vue-router';
 import TopBar from "./Layout/TopBar.vue";
 import SideBar from "./Layout/SideBar.vue";
 import Home from "./Home.vue";
-import Staff from "./users/Staff.vue";
-import Tutor from "./users/Tutor.vue";
-import StaffCreation from "./users/StaffCreation.vue";
-import Student from "./users/Student.vue";
-import StudentCreation from "./users/StudentCreation.vue";
-import Parent from "./users/Parent.vue";
-import ParentCreation from "./users/ParentCreation.vue";
-import Facilitators from "./users/Facilitators.vue";
-import FacilitatorCreation from "./users/FacilitatorCreation.vue";
-import TutorCreation from "./users/TutorCreation.vue";
+import Staff from "./menu/users/Staff.vue";
+import Tutor from "./menu/users/Tutor.vue";
+import StaffCreation from "./menu/users/StaffCreation.vue";
+import Student from "./menu/users/Student.vue";
+import StudentCreation from "./menu/users/StudentCreation.vue";
+import Parent from "./menu/users/Parent.vue";
+import ParentCreation from "./menu/users/ParentCreation.vue";
+import Facilitators from "./menu/users/Facilitators.vue";
+import FacilitatorCreation from "./menu/users/FacilitatorCreation.vue";
+import TutorCreation from "./menu/users/TutorCreation.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);

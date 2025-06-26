@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
-import TextInput from "../inputs/TextInput.vue";
-import EmailInput from "../inputs/EmailInput.vue";
-import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
-import TelephoneInput from "../inputs/TelephoneInput.vue";
-import PasswordInput from "../inputs/PasswordInput.vue";
-import DateInput from "../inputs/DateInput.vue";
-import DropDown from "../inputs/DropDown.vue";
-import DividingHeader from "../headers/DividingHeader.vue";
-import FirstSubHeading from "../headers/FirstSubHeading.vue";
-import FileInput from "../inputs/FileInput.vue";
-import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
-import CreateEntityButton from "../buttons/CreateEntityButton.vue";
-import MainHeading from "../headers/MainHeading.vue";
-import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
-import CheckBox from "../inputs/CheckBox.vue";
-import OneComponentRow from "../containers/OneComponentRow.vue";
-import DropDownDouble from "../inputs/DropDownDouble.vue";
-import CheckBoxesContainer from "../containers/CheckBoxesContainer.vue";
-import EmptySpaceDivider from "../headers/EmptySpaceDivider.vue";
-import SubHeading from "../headers/SubHeading.vue";
-import Paragraph from "../headers/Paragraph.vue";
-import HeadingAndParagraph from "../headers/HeadingAndParagraph.vue";
+import TextInput from "../../inputs/TextInput.vue";
+import EmailInput from "../../inputs/EmailInput.vue";
+import ThreeComponentsRow from "../../containers/ThreeComponentsRow.vue";
+import TelephoneInput from "../../inputs/TelephoneInput.vue";
+import PasswordInput from "../../inputs/PasswordInput.vue";
+import DateInput from "../../inputs/DateInput.vue";
+import DropDown from "../../inputs/DropDown.vue";
+import DividingHeader from "../../headers/DividingHeader.vue";
+import FirstSubHeading from "../../headers/FirstSubHeading.vue";
+import FileInput from "../../inputs/FileInput.vue";
+import TwoComponentsRow from "../../containers/TwoComponentsRow.vue";
+import CreateEntityButton from "../../buttons/CreateEntityButton.vue";
+import MainHeading from "../../headers/MainHeading.vue";
+import MainAndFirstHeading from "../../headers/MainAndFirstHeading.vue";
+import CheckBox from "../../inputs/CheckBox.vue";
+import OneComponentRow from "../../containers/OneComponentRow.vue";
+import DropDownDouble from "../../inputs/DropDownDouble.vue";
+import CheckBoxesContainer from "../../containers/CheckBoxesContainer.vue";
+import EmptySpaceDivider from "../../headers/EmptySpaceDivider.vue";
+import SubHeading from "../../headers/SubHeading.vue";
+import Paragraph from "../../headers/Paragraph.vue";
+import HeadingAndParagraph from "../../headers/HeadingAndParagraph.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },

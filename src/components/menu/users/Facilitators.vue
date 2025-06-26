@@ -1,45 +1,37 @@
 <script setup lang="ts">
-import DisplayCard from "../DisplayCard.vue";
-import FilterCard from "../FilterCard.vue";
-import SummaryCardsRow from "../containers/SummaryCardsRow.vue";
-import Student from "./Student.vue";
+import DisplayCard from "../../DisplayCard.vue";
+import FilterCard from "../../FilterCard.vue";
 
 const staffList = [
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
-  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
+  { id: 'VT002123', facilitator: 'Kojo Kwabena', facilitatorType: 'School', school: 'Shooting Stars', totalStudents: 20, dateJoined: '23/09/2023' },
 ]
 
 </script>
 
 <template>
-  <article id="parent-container" class="fade-in">
+  <article id="staff-container" class="fade-in">
     <section class="top-section">
-      <FilterCard class="filter-card" filter-title="All Parents" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
-    </section>
+      <DisplayCard :data-figure="124" data-text="Total Facilitators" />
+      <DisplayCard :data-figure="12" data-text="Active Facilitators" />
+      <DisplayCard :data-figure="12" data-text="Deactivated Facilitators" />
 
-    <section class="middle-section">
-      <SummaryCardsRow>
-        <DisplayCard :data-figure="124" data-text="Total Parent" />
-        <DisplayCard :data-figure="124" data-text="Active Parent" />
-        <DisplayCard :data-figure="124" data-text="Deactivated Parent" />
-        <DisplayCard :data-figure="124" data-text="Linked Parent" />
-      </SummaryCardsRow>
-
-      <SummaryCardsRow>
-        <DisplayCard :data-figure="124" data-text="Unlinked Parent" />
-      </SummaryCardsRow>
+      <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <section class="bottom-section">
       <article class="head-section">
-        <h1 class="heading">{{'Parent'}}</h1>
-        <router-link to="/users/create-parent">{{'Create Parent'}}</router-link>
+        <div class="menu-items">
+          <router-link to="/users/facilitators/schools">{{'Schools'}}</router-link>
+          <router-link to="/users/facilitators/academy">{{'Academy'}}</router-link>
+        </div>
+        <router-link to="/users/create-facilitator">{{'Create Facilitator'}}</router-link>
       </article>
 
       <hr />
@@ -47,7 +39,7 @@ const staffList = [
       <article class="mid-section">
         <h1 class="heading">Total Number: {{'200'}}</h1>
         <FilterCard
-            class="filter-card" filter-title="All Accounts"
+            class="filter-card" filter-title="All Schools"
             filter-option1="Option 1" filter-option2="Option 2"
             filter-option3="Option 3"
         />
@@ -58,25 +50,26 @@ const staffList = [
           <thead>
             <tr>
               <th style="width: 100px">ID NO</th>
-              <th>Parent Name</th>
-              <th>Student</th>
-              <th>Subjects</th>
-              <th style="width: 140px">Date Created</th>
+              <th>Facilitator</th>
+              <th>Facilitator Type</th>
+              <th>School</th>
+              <th>Total Students</th>
+              <th style="width: 140px">Date Joined</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="staff in staffList">
               <td style="width: 100px">{{staff.id}}</td>
-              <td>{{staff.parentName}}</td>
-              <td>{{ staff.student }}</td>
-              <td>{{staff.role}}</td>
-              <td style="width: 140px">{{staff.dateCreated}}</td>
+              <td>{{staff.facilitator}}</td>
+              <td>{{ staff.facilitatorType }}</td>
+              <td>{{staff.school}}</td>
+              <td>{{staff.totalStudents}}</td>
+              <td style="width: 140px">{{staff.dateJoined}}</td>
               <td>
-                <button class="view-account">View Account</button>
-                <button class="link">Link Child</button>
+                <button class="view-more">View More</button>
+                <button class="add">Add Student</button>
                 <button class="edit">Edit</button>
-                <button class="deactivate">Deactivate</button>
               </td>
             </tr>
           </tbody>
@@ -87,15 +80,9 @@ const staffList = [
 </template>
 
 <style scoped lang="scss">
-#parent-container {
-  max-width: 100%;
-  height: calc(100vh - 73px);
-  overflow-y: scroll;
-
+#staff-container {
   .top-section {
-    max-width: 1400px;
     display: flex;
-    justify-content: flex-end;
 
     .filter-card {
       margin-top: 30px;
@@ -103,12 +90,8 @@ const staffList = [
     }
   }
 
-  .middle-section {
-    max-width: 1400px;
-  }
-
   .bottom-section {
-    max-width: 1450px;
+    max-width: 1500px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -121,16 +104,31 @@ const staffList = [
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      padding-left: 55px;
 
-      .heading {
-        font-size: 20px;
-        font-weight: 600;
-        padding-top: 28px;
-        margin-bottom: 28px;
-        margin-left: 45px;
+      .menu-items {
+        margin-top: 35px;
+        //margin-bottom: 15px;
+
+        a {
+          display: inline-block;
+          text-align: center;
+          font-weight: 500;
+          font-size: 15px;
+          width: 135px;
+          height: 30px;
+          margin-right: 20px;
+          margin-bottom: -1.5px;
+          //background-color: #716F6F;
+          border-bottom: 3px solid #0C7334;
+
+          &:link, &:visited {
+            color: #000;
+          }
+        }
       }
 
-      a {
+      &>a {
         width: 137px;
         height: 36px;
         border-radius: 5px;
@@ -170,6 +168,7 @@ const staffList = [
 
     .table-section {
       margin-left: 54px;
+      margin-right: 54px;
 
       th {
         font-weight: 700;
@@ -190,7 +189,7 @@ const staffList = [
           td {
             border-bottom: 1px solid #D9D9D9;
             &:last-child {
-              width: 430px;
+              width: 320px;
               display: flex;
               justify-content: space-between;
 
@@ -204,20 +203,16 @@ const staffList = [
                 cursor: pointer;
               }
 
-              .view-account {
+              .view-more {
                 background-color: #DADADA;
               }
 
-              .link {
+              .add {
                 background-color: #FFB110A1;
               }
 
               .edit {
                 background-color: #9CFFC5;
-              }
-
-              .deactivate {
-                background-color: #FE9E9E;
               }
             }
           }

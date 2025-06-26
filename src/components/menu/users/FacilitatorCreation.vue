@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import TextInput from "../inputs/TextInput.vue";
-import EmailInput from "../inputs/EmailInput.vue";
-import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
-import TelephoneInput from "../inputs/TelephoneInput.vue";
-import PasswordInput from "../inputs/PasswordInput.vue";
-import DateInput from "../inputs/DateInput.vue";
-import DropDown from "../inputs/DropDown.vue";
-import TwoComponentsRow from "../containers/TwoComponentsRow.vue";
-import DividingHeader from "../headers/DividingHeader.vue";
-import FirstSubHeading from "../headers/FirstSubHeading.vue";
-import FileInput from "../inputs/FileInput.vue";
-import CreateEntityButton from "../buttons/CreateEntityButton.vue";
-import MainHeading from "../headers/MainHeading.vue";
-import MainAndFirstHeading from "../headers/MainAndFirstHeading.vue";
-import CheckBox from "../inputs/CheckBox.vue";
-import OneComponentRow from "../containers/OneComponentRow.vue";
+import TextInput from "../../inputs/TextInput.vue";
+import EmailInput from "../../inputs/EmailInput.vue";
+import ThreeComponentsRow from "../../containers/ThreeComponentsRow.vue";
+import TelephoneInput from "../../inputs/TelephoneInput.vue";
+import PasswordInput from "../../inputs/PasswordInput.vue";
+import DateInput from "../../inputs/DateInput.vue";
+import DropDown from "../../inputs/DropDown.vue";
+import TwoComponentsRow from "../../containers/TwoComponentsRow.vue";
+import DividingHeader from "../../headers/DividingHeader.vue";
+import FirstSubHeading from "../../headers/FirstSubHeading.vue";
+import FileInput from "../../inputs/FileInput.vue";
+import CreateEntityButton from "../../buttons/CreateEntityButton.vue";
+import MainHeading from "../../headers/MainHeading.vue";
+import MainAndFirstHeading from "../../headers/MainAndFirstHeading.vue";
+import CheckBox from "../../inputs/CheckBox.vue";
+import OneComponentRow from "../../containers/OneComponentRow.vue";
 
 const options = [
   { label: "IT Support", value: "IT Support" },

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import DisplayCard from "../DisplayCard.vue";
-import FilterCard from "../FilterCard.vue";
-import SummaryCardsRow from "../containers/SummaryCardsRow.vue";
+import DisplayCard from "../../DisplayCard.vue";
+import FilterCard from "../../FilterCard.vue";
+import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
 import Student from "./Student.vue";
 
-const list = [
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
-  { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
+const staffList = [
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
+  { id: 'VT002123', parentName: 'Karen Okyere', student: 'Yaa Okyere', role: 'Mathematics', dateCreated: '23/09/2023' },
 ]
 
 </script>
@@ -20,33 +20,34 @@ const list = [
 <template>
   <article id="parent-container" class="fade-in">
     <section class="top-section">
-      <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
+      <FilterCard class="filter-card" filter-title="All Parents" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
     <section class="middle-section">
       <SummaryCardsRow>
-        <DisplayCard :data-figure="124" data-text="Total Tutors" />
-        <DisplayCard :data-figure="124" data-text="Active Tutors" />
-        <DisplayCard :data-figure="124" data-text="Deactivated Tutors" />
-        <DisplayCard :data-figure="124" data-text="Pending Tutors" />
+        <DisplayCard :data-figure="124" data-text="Total Parent" />
+        <DisplayCard :data-figure="124" data-text="Active Parent" />
+        <DisplayCard :data-figure="124" data-text="Deactivated Parent" />
+        <DisplayCard :data-figure="124" data-text="Linked Parent" />
+      </SummaryCardsRow>
+
+      <SummaryCardsRow>
+        <DisplayCard :data-figure="124" data-text="Unlinked Parent" />
       </SummaryCardsRow>
     </section>
 
     <section class="bottom-section">
       <article class="head-section">
-        <div class="menu-items">
-          <router-link to="/users/tutors/schools">{{'Tutors'}}</router-link>
-          <router-link to="/users/tutors/academy">{{'Pending Tutors'}}</router-link>
-        </div>
-        <router-link to="/users/create-tutor">{{'Create Tutor'}}</router-link>
+        <h1 class="heading">{{'Parent'}}</h1>
+        <router-link to="/users/create-parent">{{'Create Parent'}}</router-link>
       </article>
 
       <hr />
 
       <article class="mid-section">
-<!--        <h1 class="heading">Total Number: {{'200'}}</h1>-->
+        <h1 class="heading">Total Number: {{'200'}}</h1>
         <FilterCard
-            class="filter-card" filter-title="All Tutors"
+            class="filter-card" filter-title="All Accounts"
             filter-option1="Option 1" filter-option2="Option 2"
             filter-option3="Option 3"
         />
@@ -57,22 +58,23 @@ const list = [
           <thead>
             <tr>
               <th style="width: 100px">ID NO</th>
-              <th>Tutor's Name</th>
+              <th>Parent Name</th>
+              <th>Student</th>
               <th>Subjects</th>
-              <th>Curriculum</th>
-              <th style="width: 140px">Date</th>
+              <th style="width: 140px">Date Created</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="{id, name, subjects, curriculum, date} in list">
-              <td style="width: 100px">{{id}}</td>
-              <td>{{name}}</td>
-              <td>{{ subjects }}</td>
-              <td>{{curriculum}}</td>
-              <td style="width: 140px">{{date}}</td>
+            <tr v-for="staff in staffList">
+              <td style="width: 100px">{{staff.id}}</td>
+              <td>{{staff.parentName}}</td>
+              <td>{{ staff.student }}</td>
+              <td>{{staff.role}}</td>
+              <td style="width: 140px">{{staff.dateCreated}}</td>
               <td>
                 <button class="view-account">View Account</button>
+                <button class="link">Link Child</button>
                 <button class="edit">Edit</button>
                 <button class="deactivate">Deactivate</button>
               </td>
@@ -106,7 +108,7 @@ const list = [
   }
 
   .bottom-section {
-    max-width: 1400px;
+    max-width: 1450px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -119,31 +121,16 @@ const list = [
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding-left: 55px;
 
-      .menu-items {
-        margin-top: 35px;
-        //margin-bottom: 15px;
-
-        a {
-          display: inline-block;
-          text-align: center;
-          font-weight: 500;
-          font-size: 15px;
-          width: 135px;
-          height: 30px;
-          margin-right: 20px;
-          margin-bottom: -1.5px;
-          //background-color: #716F6F;
-          border-bottom: 3px solid #0C7334;
-
-          &:link, &:visited {
-            color: #000;
-          }
-        }
+      .heading {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 28px;
+        margin-bottom: 28px;
+        margin-left: 45px;
       }
 
-      &>a {
+      a {
         width: 137px;
         height: 36px;
         border-radius: 5px;
@@ -165,7 +152,7 @@ const list = [
 
     .mid-section {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       margin-top: 15px;
       margin-bottom: 50px;
@@ -203,7 +190,7 @@ const list = [
           td {
             border-bottom: 1px solid #D9D9D9;
             &:last-child {
-              width: 320px;
+              width: 430px;
               display: flex;
               justify-content: space-between;
 

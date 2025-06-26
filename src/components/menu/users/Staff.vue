@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DisplayCard from "../DisplayCard.vue";
-import FilterCard from "../FilterCard.vue";
+import DisplayCard from "../../DisplayCard.vue";
+import FilterCard from "../../FilterCard.vue";
 
 const staffList = [
   { id: 'VT002123', fullName: 'Karen Okyere', department: 'Tech', role: 'Technical Agent', dateCreated: '23/09/2023' },
