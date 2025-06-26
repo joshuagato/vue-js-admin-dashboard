@@ -2,8 +2,11 @@
 import {defineComponent, ref, reactive, onMounted, onUnmounted} from 'vue';
 
 // Template refs for accessing DOM elements
-const menuItemRef = ref<HTMLElement | null>(null);
-const extraMenuRef = ref<HTMLElement | null>(null);
+const usersMenuItemRef = ref<HTMLElement | null>(null);
+const bookingsMenuItemRef = ref<HTMLElement | null>(null);
+
+const usersExtraMenuRef = ref<HTMLElement | null>(null);
+const bookingsExtraMenuRef = ref<HTMLElement | null>(null);
 
 // Reactive state to control menu visibility
 const isExtraMenuVisible = ref(false);
@@ -25,14 +28,18 @@ const clearHideTimeout = () => {
 };
 
 // Handle mouse enter event on the main menu item or the extra menu itself
-const handleMouseEnter = () => {
+const handleMouseEnter = (event: MouseEvent) => {
   clearHideTimeout(); // Clear any pending hide timeout
+  const eventTargetElement = event.target as HTMLElement;
 
   // If menu item reference is available
-  if (menuItemRef.value) {
+  // if (usersMenuItemRef.value || bookingsMenuItemRef.value) {
+  if (eventTargetElement) {
     // Get the bounding rectangle of the menu item relative to the viewport
-    const rect = menuItemRef.value.getBoundingClientRect();
-    const computedStyle = window.getComputedStyle(menuItemRef.value);
+    // const rect = usersMenuItemRef.value.getBoundingClientRect();
+    const rect = eventTargetElement.getBoundingClientRect();
+    // const computedStyle = window.getComputedStyle(usersMenuItemRef.value);
+    const computedStyle = window.getComputedStyle(eventTargetElement);
 
     // Set the top and left positions of the extra menu
     // rect.bottom gives the distance from the top of the viewport to the bottom of the menu item.
@@ -45,16 +52,26 @@ const handleMouseEnter = () => {
     extraMenuStyle.left = `${rect.left + 190}px`;
   }
 
+  if (eventTargetElement.nextElementSibling.localName === 'div') {
+    eventTargetElement.nextElementSibling.classList.add('is-visible');
+  }
+
   isExtraMenuVisible.value = true;
 };
 
 // Handle mouse leave event from the main menu item or the extra menu
-const handleMouseLeave = () => {
-  // Set a timeout to hide the menu, allowing a brief moment for mouse
-  // to move between the main item and the extra menu without it disappearing.
+const handleMouseLeave = (event: MouseEvent) => {
+  const eventTargetElement = event.target as HTMLElement;
+
   hideTimeout = setTimeout(() => {
+    if (eventTargetElement.nextElementSibling.classList.contains('is-visible'))
+      eventTargetElement.nextElementSibling.classList.remove('is-visible');
+
+    if (eventTargetElement.classList.contains('is-visible'))
+      eventTargetElement.classList.remove('is-visible');
+
     isExtraMenuVisible.value = false;
-  }, 150); // 150ms delay
+  }, 50);
 };
 
 // Function to re-position the menu if the window is resized or scrolled
@@ -82,12 +99,11 @@ onUnmounted(() => {
 <template>
   <section id="side-bar">
     <section id="side-bar-top">
-      <article ref="menuItemRef" class="menu-item" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+      <article class="menu-item" ref="usersMenuItemRef" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
         <img src="../../assets/side-menu/users-solid%201.png" alt="Users icon" /><span>Users</span>
       </article>
       <div
-          ref="extraMenuRef" class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave"
-          :class="{ 'is-visible': isExtraMenuVisible }"
+          ref="usersExtraMenuRef" class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave"
           :style="extraMenuStyle"
       >
         <h1>Users</h1>
@@ -99,7 +115,21 @@ onUnmounted(() => {
           <li><router-link to="/users/facilitators">Facilitators</router-link></li>
         </ul>
       </div>
-      <article class="menu-item"><img src="../../assets/side-menu/video-solid%202.png" alt="Bookings icon" /><span>Bookings</span></article>
+      <article class="menu-item" ref="bookingsMenuItemRef" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+        <img src="../../assets/side-menu/video-solid%202.png" alt="Bookings icon" /><span>Bookings</span>
+      </article>
+      <div
+          ref="bookingsExtraMenuRef" class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave"
+          :style="extraMenuStyle"
+      >
+        <h1>Bookings</h1>
+        <ul>
+          <li><router-link to="/bookings/lessons">Lessons</router-link></li>
+          <li><router-link to="/bookings/free-meetings">Free Meetings</router-link></li>
+          <li><router-link to="/bookings/requests">Requests</router-link></li>
+          <li><router-link to="/bookings/jobs">Jobs</router-link></li>
+        </ul>
+      </div>
       <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academics icon" /><span>Academics</span></article>
       <article class="menu-item"><img src="../../assets/side-menu/wallet-solid 1.png" alt="Finance icon" /><span>Finance</span></article>
       <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academy icon" /><span>Academy</span></article>
@@ -219,3 +249,5 @@ onUnmounted(() => {
   }
 }
 </style>
+
+<!--:class="{ 'is-visible': isExtraMenuVisible }"-->
