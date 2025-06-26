@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue';
+
 import TextInput from "../inputs/TextInput.vue";
 import EmailInput from "../inputs/EmailInput.vue";
 import ThreeComponentsRow from "../containers/ThreeComponentsRow.vue";
@@ -27,6 +29,70 @@ const options = [
   { label: "IT Support", value: "IT Support" },
   { label: "IT Support", value: "IT Support" },
 ];
+
+const vSrc = '';
+const videoId = ref('https://www.youtube.com/watch?v=zZH3103vrro');
+let vid = getYouTubeVideoId(videoId.value);
+
+function getYouTubeVideoId(urlString) {
+  if (!urlString || typeof urlString !== 'string') {
+    console.warn("Invalid input: URL must be a non-empty string.");
+    return null;
+  }
+
+  let videoId = null;
+  const url = new URL(urlString); // Use URL object for easier parsing
+
+  // Case 1: Standard watch URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)
+  // The 'v' query parameter contains the video ID
+  if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+    videoId = url.searchParams.get('v');
+    if (videoId) {
+      return videoId;
+    }
+  }
+
+  // Case 2: Shortened YouTube URL (e.g., https://youtu.be/VIDEO_ID)
+  // The video ID is directly in the pathname
+  if (url.hostname === 'youtu.be') {
+    // Remove leading slash if present and get the first segment
+    videoId = url.pathname.substring(1).split('/')[0];
+    if (videoId) {
+      return videoId;
+    }
+  }
+
+  // Case 3: Embed URL (e.g., https://www.youtube.com/embed/VIDEO_ID)
+  // The video ID is in the pathname after '/embed/'
+  if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+    const embedMatch = url.pathname.match(/\/embed\/(.+)/);
+    if (embedMatch && embedMatch[1]) {
+      // The video ID might have query parameters after it (e.g., /embed/VIDEO_ID?si=...)
+      // Take only the part before any '?'
+      videoId = embedMatch[1].split('?')[0];
+      return videoId;
+    }
+  }
+
+  // Case 4: Other less common patterns (e.g., playlist items, specific user videos)
+  // This is a catch-all regex for various formats that might have the ID in a path segment
+  // or a query parameter, if the above specific checks don't catch it.
+  // This regex is simplified and might be less robust for highly unusual URLs.
+  const regex = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/;
+  const match = urlString.match(regex);
+  if (match && match[1]) {
+    return match[1];
+  }
+
+  // If no known pattern matches
+  console.warn(`Could not extract video ID from URL: ${urlString}`);
+  return null;
+}
+
+watch(videoId, (newValue, oldValue) => {
+  vid = getYouTubeVideoId(newValue);
+  // You can also add more complex logic here if needed
+});
 
 </script>
 
@@ -186,7 +252,27 @@ const options = [
     />
   </OneComponentRow>
 
-  <!--  Work here-->
+  <OneComponentRow>
+    <div class="video-section-container">
+      <div class="video-container">
+          <video :src="vSrc" v-if="vSrc"></video>
+          <iframe v-if="vid" width="374" height="235" :src="`https://www.youtube.com/embed/${vid}?si=p9HTp42OFrhU6N98`"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" :allowfullscreen="false"></iframe>
+      </div>
+      <div class="video-upload-container">
+        <button>Upload Video</button>
+
+        <p>Minimum size 720x480px. 10MB file limit</p>
+
+        <span>Or upload it to youtube</span>
+        <span>Upload your video to youtube and paste a link to it here</span>
+
+        <input type="text" v-model="videoId" />
+      </div>
+    </div>
+  </OneComponentRow>
 
   <EmptySpaceDivider />
 
@@ -253,6 +339,70 @@ at my high school in Surrey and received the science scholarship from the years 
     font-size: 20px;
     padding-bottom: 0;
     margin-bottom: 15px;
+  }
+
+  .video-section-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    //gap: 55px;
+
+    .video-container {
+      width: 444px;
+      height: 310px;
+      padding: 40px;
+      background-color: #D9D9D9;
+      border-radius: 10px;
+      position: relative;
+
+      video {
+        width: 374px;
+        height: 235px;
+        background-color: #231F20;
+      }
+
+      video, iframe {
+        position: absolute;
+        left: 8%;
+      }
+    }
+
+    .video-upload-container {
+      button {
+        width: 251px;
+        height: 60px;
+        background-color: #9CFFC5;
+        font-size: 23px;
+        font-weight: 500;
+        color: #231F20;
+        border: none;
+        border-radius: 5px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 17px;
+        margin-top: 23px;
+        margin-bottom: 76px;
+      }
+
+      span {
+        font-size: 17px;
+        font-weight: 500;
+        display: block;
+      }
+
+      input {
+        margin-top: 39px;
+        border: 1px solid #D1D3D4;
+        background-color: #D8F7E5;
+        color: #716F6F;
+        width: 508px;
+        height: 49px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 19px;
+      }
+    }
   }
 
   textarea {
