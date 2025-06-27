@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import { useRoute } from 'vue-router';
+
 import TopBar from "./Layout/TopBar.vue";
 import SideBar from "./Layout/SideBar.vue";
 import Home from "./Home.vue";
@@ -14,6 +15,7 @@ import ParentCreation from "./menu/users/ParentCreation.vue";
 import Facilitators from "./menu/users/Facilitators.vue";
 import FacilitatorCreation from "./menu/users/FacilitatorCreation.vue";
 import TutorCreation from "./menu/users/TutorCreation.vue";
+import Lesson from "./menu/bookings/Lesson.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -24,8 +26,10 @@ const route = useRoute();
 
 // Computed properties to check for specific URL segments
 const isHomePath = computed(() => route.path === '/');
+
+// Users Menu Options
 // const isTutorPath = computed(() => currentUrl.value.includes('/tutor')); // This does not work
-const isTutorPath = computed(() => route.path.includes('/users/tutor'));
+const isTutorPath = computed(() => route.path.includes('/users/tutors'));
 const isCreateTutorPath = computed(() => route.path.includes('/users/create-tutor'));
 
 const isStaffPath = computed(() => route.path.includes('/users/staff'));
@@ -40,6 +44,9 @@ const isCreateParentPath = computed(() => route.path.includes('/users/create-par
 const isFacilitatorPath = computed(() => route.path.includes('/users/facilitators'));
 const isCreateFacilitatorPath = computed(() => route.path.includes('/users/create-facilitator'));
 
+// Bookings Menu Options
+const isLessonPath = computed(() => route.path.includes('/bookings/lessons'));
+const isCreateLessonPath = computed(() => route.path.includes('/bookings/create-lesson'));
 </script>
 
 <template>
@@ -64,6 +71,9 @@ const isCreateFacilitatorPath = computed(() => route.path.includes('/users/creat
 
       <Facilitators v-else-if="isFacilitatorPath" />
       <FacilitatorCreation v-else-if="isCreateFacilitatorPath" />
+
+      <Lesson v-else-if="isLessonPath" />
+
     </section>
   </div>
 </template>
