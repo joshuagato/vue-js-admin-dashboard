@@ -39,7 +39,7 @@ watch(() => props.modelValue, (newPropValue) => {
 <style scoped lang="scss">
 .search-input {
   input {
-    width: 160px;
+    //width: 160px;
     height: 40px;
     padding-left: 10px;
     padding-right: 10px;
