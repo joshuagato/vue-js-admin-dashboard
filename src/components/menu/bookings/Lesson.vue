@@ -135,7 +135,7 @@ watch(() => route.path, (newValue, oldValue) => {
               <th>Tutor</th>
               <th>Students</th>
               <th>Subjects</th>
-              <th style="width: 140px">Date/Time</th>
+              <th v-if="!isCompletedPath" style="width: 140px">Date/Time</th>
               <th v-if="isPendingPath">Status</th>
               <th></th>
             </tr>
@@ -192,6 +192,18 @@ watch(() => route.path, (newValue, oldValue) => {
                 <button class="view-account">View More</button>
                 <button class="join">Join</button>
                 <button class="reschedule">Reschedule</button>
+              </td>
+            </tr>
+
+            <tr v-if="isCompletedPath" class="fade-in completed" v-for="{id, tutor, students, subjects} in list">
+              <td style="width: 100px">{{id}}</td>
+              <td>{{tutor}}</td>
+              <td>{{ students }}</td>
+              <td>{{subjects}}</td>
+              <td>
+                <button class="recording">View Recording</button>
+                <button class="refund">Refund</button>
+                <button class="view-account">View Report</button>
               </td>
             </tr>
           </tbody>
@@ -365,11 +377,11 @@ watch(() => route.path, (newValue, oldValue) => {
                 background-color: #FFB110A1;
               }
 
-              .edit, .request, .join {
+              .edit, .request, .join, .recording {
                 background-color: #9CFFC5;
               }
 
-              .deactivate, .reschedule {
+              .deactivate, .reschedule, .refund {
                 background-color: #FE9E9E;
               }
             }
@@ -396,6 +408,30 @@ watch(() => route.path, (newValue, oldValue) => {
 
             &:last-child {
               width: 250px;
+            }
+          }
+        }
+
+        tr.completed {
+          td {
+            label {
+              display: inline-block;
+              font-weight: 500;
+              font-size: 14px;
+              border-radius: 5px;
+              padding: 8px 15px 8px 15px;
+
+              &.unpaid {
+                background-color: #FE9E9E;
+              }
+
+              &.payment-failed {
+                background-color: #FFEAD2;
+              }
+            }
+
+            &:last-child {
+              width: 330px;
             }
           }
         }
