@@ -184,6 +184,10 @@ const staffList = [
         align-items: center;
         gap: 10px;
         margin-right: 65px;
+
+        #searchStudent {
+          width: 160px;
+        }
       }
     }
 
