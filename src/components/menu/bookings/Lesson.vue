@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import {computed} from 'vue';
+import {computed, ref, watch} from 'vue';
 import { useRoute } from 'vue-router';
 
 import DisplayCard from "../../DisplayCard.vue";
 import FilterCard from "../../FilterCard.vue";
 import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
+import SearchInput from "../../inputs/SearchInput.vue";
 
 const list = [
   { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
@@ -17,6 +18,16 @@ const list = [
   { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
 ]
 
+const pendingList = [
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+]
 const handleClick = (event: MouseEvent) => {
   // const clickedElement = event.target as HTMLElement;
   const clickedElement = event.currentTarget as HTMLElement;
@@ -38,21 +49,41 @@ const handleClick = (event: MouseEvent) => {
 
 const route = useRoute();
 
+const isBookingsHomePath = computed(() => route.path === '/bookings/lessons');
 const isUpcomingPath = computed(() => route.path === '/bookings/lessons/upcoming');
 const isPendingPath = computed(() => route.path === '/bookings/lessons/pending');
 const isLivePath = computed(() => route.path === '/bookings/lessons/live');
 const isCancelledPath = computed(() => route.path === '/bookings/lessons/cancelled');
 const isCompletedPath = computed(() => route.path === '/bookings/lessons/completed');
 
+let isPendingPathBooleanValue = ref(false);
+
+const dynamicWidthStyle = computed(() => {
+  if (isPendingPathBooleanValue.value) {
+    return {
+      width: '1500px'
+    };
+  } else {
+    return {
+      width: '1400px'
+    };
+  }
+});
+
+watch(() => route.path, (newValue, oldValue) => {
+  isPendingPathBooleanValue.value = newValue === '/bookings/lessons/pending';
+  console.log(newValue, isPendingPathBooleanValue)
+});
+
 </script>
 
 <template>
   <article id="parent-container" class="fade-in">
-    <section class="top-section">
+    <section class="top-section" :style="dynamicWidthStyle">
       <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
-    <section class="middle-section">
+    <section class="middle-section" :style="dynamicWidthStyle">
       <SummaryCardsRow>
         <DisplayCard :data-figure="124" data-text="Total Lessons" />
         <DisplayCard :data-figure="124" data-text="Upcoming Lessons" />
@@ -62,7 +93,7 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
       </SummaryCardsRow>
     </section>
 
-    <section class="bottom-section">
+    <section class="bottom-section" :style="dynamicWidthStyle">
       <article class="head-section">
         <div class="menu-items">
           <router-link :class="{'active-border': isUpcomingPath}" @click="handleClick" to="/bookings/lessons/upcoming">
@@ -81,7 +112,8 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
             {{'Completed Lessons'}}
           </router-link>
         </div>
-        <router-link to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
+        <SearchInput class="fade-in" v-if="!isBookingsHomePath && !isUpcomingPath" id="searchLesson" placeholder="Search lesson.." />
+        <router-link class="fade-in" v-if="isBookingsHomePath || isUpcomingPath" to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
       </article>
 
       <hr />
@@ -104,11 +136,12 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
               <th>Students</th>
               <th>Subjects</th>
               <th style="width: 140px">Date/Time</th>
+              <th v-if="isPendingPath">Status</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="{id, tutor, students, subjects, dateTime} in list">
+            <tr v-if="isBookingsHomePath || isUpcomingPath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
               <td style="width: 100px">{{id}}</td>
               <td>{{tutor}}</td>
               <td>{{ students }}</td>
@@ -121,6 +154,44 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
                 <button class="view-account">View More</button>
                 <button class="edit">Message</button>
                 <button class="deactivate">Edit</button>
+              </td>
+            </tr>
+
+            <tr v-if="isPendingPath" class="fade-in pending" v-for="{id, tutor, students, subjects, dateTime, status} in pendingList">
+              <td style="width: 100px">{{ id }}</td>
+              <td>{{ tutor }}</td>
+              <td>{{ students }}</td>
+              <td>{{subjects}}</td>
+              <td style="width: 140px">
+                <span>{{dateTime.split('T')[0]}}</span>
+                <span>{{dateTime.split('T')[1]}}</span>
+              </td>
+              <td>
+                <label class="status"
+                       :class="{'unpaid': status === 'Unpaid', 'payment-failed': status === 'Payment Failed' }"
+                >
+                  {{ status }}
+                </label>
+              </td>
+              <td>
+                <button class="request">Request Payment</button>
+                <button class="view-account">View More</button>
+              </td>
+            </tr>
+
+            <tr v-if="isLivePath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
+              <td style="width: 100px">{{id}}</td>
+              <td>{{tutor}}</td>
+              <td>{{ students }}</td>
+              <td>{{subjects}}</td>
+              <td style="width: 140px">
+                <span>{{dateTime.split('T')[0]}}</span>
+                <span>{{dateTime.split('T')[1]}}</span>
+              </td>
+              <td>
+                <button class="view-account">View More</button>
+                <button class="join">Join</button>
+                <button class="reschedule">Reschedule</button>
               </td>
             </tr>
           </tbody>
@@ -136,8 +207,12 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
   height: calc(100vh - 73px);
   overflow-y: scroll;
 
+  .top-section, .middle-section, .bottom-section {
+    transition: width 0.3s ease-in-out;
+  }
+
   .top-section {
-    max-width: 1400px;
+    //max-width: 1500px;
     display: flex;
     justify-content: flex-end;
 
@@ -148,11 +223,11 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
   }
 
   .middle-section {
-    max-width: 1400px;
+    //max-width: 1400px;
   }
 
   .bottom-section {
-    max-width: 1400px;
+    //max-width: 1500px;
     height: calc(100vh - 50px - 134px - 34px - 73px);
     background-color: #FFFFFF;
     margin-top: 50px;
@@ -169,7 +244,6 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
 
       .menu-items {
         margin-top: 35px;
-        //margin-bottom: 15px;
 
         a {
           display: inline-block;
@@ -178,15 +252,22 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
           font-size: 15px;
           width: 135px;
           height: 30px;
-          margin-right: 20px;
           margin-bottom: -1.5px;
-          //background-color: #716F6F;
-          //border-bottom: 3px solid #0C7334;
 
           &:link, &:visited {
             color: #000;
           }
         }
+      }
+
+      &>a, .search-input {
+        font-size: 14px;
+        margin-right: 50px;
+      }
+
+      #searchLesson, a {
+        width: 160px;
+        margin-right: 20px;
       }
 
       &>a {
@@ -200,8 +281,6 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
         align-items: center;
         justify-content: center;
         font-weight: 700;
-        font-size: 14px;
-        margin-right: 50px;
 
         &:link, &:visited {
           color: #FFF;
@@ -262,7 +341,8 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
             &:last-child {
               width: 320px;
               display: flex;
-              justify-content: space-between;
+              gap: 10px;
+              //justify-content: space-between;
               align-items: center;
               height: 50px;
 
@@ -270,8 +350,9 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
                 font-weight: 500;
                 font-size: 14px;
                 border-radius: 5px;
-                width: 100px;
-                height: 34px;
+                padding: 8px 15px 8px 15px;
+                //width: 100px;
+                //height: 34px;
                 border: none;
                 cursor: pointer;
               }
@@ -284,13 +365,37 @@ const isCompletedPath = computed(() => route.path === '/bookings/lessons/complet
                 background-color: #FFB110A1;
               }
 
-              .edit {
+              .edit, .request, .join {
                 background-color: #9CFFC5;
               }
 
-              .deactivate {
+              .deactivate, .reschedule {
                 background-color: #FE9E9E;
               }
+            }
+          }
+        }
+
+        tr.pending {
+          td {
+            label {
+              display: inline-block;
+              font-weight: 500;
+              font-size: 14px;
+              border-radius: 5px;
+              padding: 8px 15px 8px 15px;
+
+              &.unpaid {
+                background-color: #FE9E9E;
+              }
+
+              &.payment-failed {
+                background-color: #FFEAD2;
+              }
+            }
+
+            &:last-child {
+              width: 250px;
             }
           }
         }
