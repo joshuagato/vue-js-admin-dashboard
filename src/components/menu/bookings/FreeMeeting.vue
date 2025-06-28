@@ -49,12 +49,9 @@ const handleClick = (event: MouseEvent) => {
 
 const route = useRoute();
 
-const isBookingsHomePath = computed(() => route.path === '/bookings/lessons');
-const isUpcomingPath = computed(() => route.path === '/bookings/lessons/upcoming');
-const isPendingPath = computed(() => route.path === '/bookings/lessons/pending');
-const isLivePath = computed(() => route.path === '/bookings/lessons/live');
-const isCancelledPath = computed(() => route.path === '/bookings/lessons/cancelled');
-const isCompletedPath = computed(() => route.path === '/bookings/lessons/completed');
+const isLessonsHomePath = computed(() => route.path === '/bookings/free-meetings');
+const isUpcomingPath = computed(() => route.path === '/bookings/free-meetings/upcoming');
+const isCompletedPath = computed(() => route.path === '/bookings/free-meetings/completed');
 
 let isPendingPathBooleanValue = ref(false);
 
@@ -85,35 +82,24 @@ watch(() => route.path, (newValue, oldValue) => {
 
     <section class="middle-section" :style="dynamicWidthStyle">
       <SummaryCardsRow>
-        <DisplayCard :data-figure="124" data-text="Total Lessons" />
-        <DisplayCard :data-figure="124" data-text="Upcoming Lessons" />
-        <DisplayCard :data-figure="124" data-text="Pending Lessons" />
-        <DisplayCard :data-figure="124" data-text="Completed Lessons" />
-        <DisplayCard :data-figure="124" data-text="Cancelled Lessons" />
+        <DisplayCard :data-figure="124" data-text="Total Free Meetings" />
+        <DisplayCard :data-figure="124" data-text="Upcoming Free Meetings" />
+        <DisplayCard :data-figure="124" data-text="Completed Free Meetings" />
       </SummaryCardsRow>
     </section>
 
     <section class="bottom-section" :style="dynamicWidthStyle">
       <article class="head-section">
         <div class="menu-items">
-          <router-link :class="{'active-border': isUpcomingPath}" @click="handleClick" to="/bookings/lessons/upcoming">
-            {{'Upcoming Lesson'}}
+          <router-link :class="{'active-border': isUpcomingPath || isLessonsHomePath}" @click="handleClick" to="/bookings/free-meetings/upcoming">
+            {{'Upcoming Free Meetings'}}
           </router-link>
-          <router-link :class="{'active-border': isPendingPath}" @click="handleClick" to="/bookings/lessons/pending">
-            {{'Pending Lessons'}}
-          </router-link>
-          <router-link :class="{'active-border': isLivePath}" @click="handleClick" to="/bookings/lessons/live">
-            {{'Live Lessons'}}
-          </router-link>
-          <router-link :class="{'active-border': isCancelledPath}" @click="handleClick" to="/bookings/lessons/cancelled">
-            {{'Cancelled Lessons'}}
-          </router-link>
-          <router-link :class="{'active-border': isCompletedPath}" @click="handleClick" to="/bookings/lessons/completed">
-            {{'Completed Lessons'}}
+          <router-link :class="{'active-border': isCompletedPath}" @click="handleClick" to="/bookings/free-meetings/completed">
+            {{'Completed Free Meetings'}}
           </router-link>
         </div>
-        <SearchInput class="fade-in" v-if="!isBookingsHomePath && !isUpcomingPath" id="searchLesson" placeholder="Search lesson.." />
-        <router-link class="fade-in" v-if="isBookingsHomePath || isUpcomingPath" to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
+        <SearchInput class="fade-in" v-if="!isLessonsHomePath && !isUpcomingPath" id="searchLesson" placeholder="Search lesson.." />
+        <router-link class="fade-in" v-if="isLessonsHomePath || isUpcomingPath" to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
       </article>
 
       <hr />
@@ -141,7 +127,7 @@ watch(() => route.path, (newValue, oldValue) => {
             </tr>
           </thead>
           <tbody>
-            <tr v-if="isBookingsHomePath || isUpcomingPath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
+            <tr v-if="isLessonsHomePath || isUpcomingPath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
               <td style="width: 100px">{{id}}</td>
               <td>{{tutor}}</td>
               <td>{{ students }}</td>
@@ -262,7 +248,7 @@ watch(() => route.path, (newValue, oldValue) => {
           text-align: center;
           font-weight: 500;
           font-size: 15px;
-          width: 135px;
+          width: 180px;
           height: 30px;
           margin-bottom: -1.5px;
 
