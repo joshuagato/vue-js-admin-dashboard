@@ -17,6 +17,7 @@ import FacilitatorCreation from "./menu/users/FacilitatorCreation.vue";
 import TutorCreation from "./menu/users/TutorCreation.vue";
 import Lesson from "./menu/bookings/Lesson.vue";
 import FreeMeeting from "./menu/bookings/FreeMeeting.vue";
+import Request from "./menu/bookings/Request.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -50,6 +51,7 @@ const isLessonPath = computed(() => route.path.includes('/bookings/lessons'));
 const isCreateLessonPath = computed(() => route.path.includes('/bookings/create-lesson'));
 
 const isFreeMeetingPath = computed(() => route.path.includes('/bookings/free-meetings'));
+const isRequestPath = computed(() => route.path.includes('/bookings/requests'));
 </script>
 
 <template>
@@ -76,8 +78,8 @@ const isFreeMeetingPath = computed(() => route.path.includes('/bookings/free-mee
       <FacilitatorCreation v-else-if="isCreateFacilitatorPath" />
 
       <Lesson v-else-if="isLessonPath" />
-
       <FreeMeeting v-else-if="isFreeMeetingPath" />
+      <Request v-else-if="isRequestPath" />
 
     </section>
   </div>
