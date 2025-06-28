@@ -135,7 +135,7 @@ watch(() => route.path, (newValue, oldValue) => {
               <th>Tutor</th>
               <th>Students</th>
               <th>Subjects</th>
-              <th v-if="!isCompletedPath" style="width: 140px">Date/Time</th>
+              <th style="width: 140px">Date/Time</th>
               <th v-if="isPendingPath">Status</th>
               <th></th>
             </tr>
@@ -195,11 +195,15 @@ watch(() => route.path, (newValue, oldValue) => {
               </td>
             </tr>
 
-            <tr v-if="isCompletedPath" class="fade-in completed" v-for="{id, tutor, students, subjects} in list">
+            <tr v-if="isCompletedPath" class="fade-in completed" v-for="{id, tutor, students, subjects, dateTime} in list">
               <td style="width: 100px">{{id}}</td>
               <td>{{tutor}}</td>
               <td>{{ students }}</td>
               <td>{{subjects}}</td>
+              <td style="width: 140px">
+                <span>{{dateTime.split('T')[0]}}</span>
+                <span>{{dateTime.split('T')[1]}}</span>
+              </td>
               <td>
                 <button class="recording">View Recording</button>
                 <button class="refund">Refund</button>
