@@ -49,7 +49,7 @@ const handleClick = (event: MouseEvent) => {
 
 const route = useRoute();
 
-const isBookingsHomePath = computed(() => route.path === '/bookings/lessons');
+const isLessonsHomePath = computed(() => route.path === '/bookings/lessons');
 const isUpcomingPath = computed(() => route.path === '/bookings/lessons/upcoming');
 const isPendingPath = computed(() => route.path === '/bookings/lessons/pending');
 const isLivePath = computed(() => route.path === '/bookings/lessons/live');
@@ -96,7 +96,7 @@ watch(() => route.path, (newValue, oldValue) => {
     <section class="bottom-section" :style="dynamicWidthStyle">
       <article class="head-section">
         <div class="menu-items">
-          <router-link :class="{'active-border': isUpcomingPath}" @click="handleClick" to="/bookings/lessons/upcoming">
+          <router-link :class="{'active-border': isUpcomingPath || isLessonsHomePath}" @click="handleClick" to="/bookings/lessons/upcoming">
             {{'Upcoming Lesson'}}
           </router-link>
           <router-link :class="{'active-border': isPendingPath}" @click="handleClick" to="/bookings/lessons/pending">
@@ -112,8 +112,8 @@ watch(() => route.path, (newValue, oldValue) => {
             {{'Completed Lessons'}}
           </router-link>
         </div>
-        <SearchInput class="fade-in" v-if="!isBookingsHomePath && !isUpcomingPath" id="searchLesson" placeholder="Search lesson.." />
-        <router-link class="fade-in" v-if="isBookingsHomePath || isUpcomingPath" to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
+        <SearchInput class="fade-in" v-if="!isLessonsHomePath && !isUpcomingPath" id="searchLesson" placeholder="Search lesson.." />
+        <router-link class="fade-in" v-if="isLessonsHomePath || isUpcomingPath" to="/bookings/create-lesson">{{'Create Lesson'}}</router-link>
       </article>
 
       <hr />
@@ -141,7 +141,7 @@ watch(() => route.path, (newValue, oldValue) => {
             </tr>
           </thead>
           <tbody>
-            <tr v-if="isBookingsHomePath || isUpcomingPath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
+            <tr v-if="isLessonsHomePath || isUpcomingPath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
               <td style="width: 100px">{{id}}</td>
               <td>{{tutor}}</td>
               <td>{{ students }}</td>
