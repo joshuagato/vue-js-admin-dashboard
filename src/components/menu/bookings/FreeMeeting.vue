@@ -6,27 +6,28 @@ import DisplayCard from "../../DisplayCard.vue";
 import FilterCard from "../../FilterCard.vue";
 import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
 import SearchInput from "../../inputs/SearchInput.vue";
+import CardMainHeading from "../../headers/CardMainHeading.vue";
 
 const list = [
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am' },
 ]
 
 const pendingList = [
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
-  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osei', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Payment Failed' },
+  { id: 'VT29373', tutor: 'Hannah Quante', students: 'Karen Osah', subjects: 'Science', dateTime: 'Mon, 02/02/2025 T 10:00am', status: 'Unpaid' },
 ]
 const handleClick = (event: MouseEvent) => {
   // const clickedElement = event.target as HTMLElement;
@@ -77,6 +78,7 @@ watch(() => route.path, (newValue, oldValue) => {
 <template>
   <article id="parent-container" class="fade-in">
     <section class="top-section" :style="dynamicWidthStyle">
+      <CardMainHeading text="Free Meetings" />
       <FilterCard class="filter-card" filter-title="All Data" filter-option1="Option 1" filter-option2="Option 2" filter-option3="Option 3" />
     </section>
 
@@ -121,8 +123,7 @@ watch(() => route.path, (newValue, oldValue) => {
               <th>Tutor</th>
               <th>Students</th>
               <th>Subjects</th>
-              <th v-if="!isCompletedPath" style="width: 140px">Date/Time</th>
-              <th v-if="isPendingPath">Status</th>
+              <th style="width: 140px">Date/Time</th>
               <th></th>
             </tr>
           </thead>
@@ -138,57 +139,22 @@ watch(() => route.path, (newValue, oldValue) => {
               </td>
               <td>
                 <button class="view-account">View More</button>
-                <button class="edit">Message</button>
-                <button class="deactivate">Edit</button>
-              </td>
-            </tr>
-
-            <tr v-if="isPendingPath" class="fade-in pending" v-for="{id, tutor, students, subjects, dateTime, status} in pendingList">
-              <td style="width: 100px">{{ id }}</td>
-              <td>{{ tutor }}</td>
-              <td>{{ students }}</td>
-              <td>{{subjects}}</td>
-              <td style="width: 140px">
-                <span>{{dateTime.split('T')[0]}}</span>
-                <span>{{dateTime.split('T')[1]}}</span>
-              </td>
-              <td>
-                <label class="status"
-                       :class="{'unpaid': status === 'Unpaid', 'payment-failed': status === 'Payment Failed' }"
-                >
-                  {{ status }}
-                </label>
-              </td>
-              <td>
-                <button class="request">Request Payment</button>
-                <button class="view-account">View More</button>
-              </td>
-            </tr>
-
-            <tr v-if="isLivePath" class="fade-in" v-for="{id, tutor, students, subjects, dateTime} in list">
-              <td style="width: 100px">{{id}}</td>
-              <td>{{tutor}}</td>
-              <td>{{ students }}</td>
-              <td>{{subjects}}</td>
-              <td style="width: 140px">
-                <span>{{dateTime.split('T')[0]}}</span>
-                <span>{{dateTime.split('T')[1]}}</span>
-              </td>
-              <td>
-                <button class="view-account">View More</button>
                 <button class="join">Join</button>
                 <button class="reschedule">Reschedule</button>
               </td>
             </tr>
 
-            <tr v-if="isCompletedPath" class="fade-in completed" v-for="{id, tutor, students, subjects} in list">
+            <tr v-if="isCompletedPath" class="fade-in completed" v-for="{id, tutor, students, subjects, dateTime} in list">
               <td style="width: 100px">{{id}}</td>
               <td>{{tutor}}</td>
               <td>{{ students }}</td>
               <td>{{subjects}}</td>
+              <td style="width: 140px">
+                <span>{{dateTime.split('T')[0]}}</span>
+                <span>{{dateTime.split('T')[1]}}</span>
+              </td>
               <td>
                 <button class="recording">View Recording</button>
-                <button class="refund">Refund</button>
                 <button class="view-account">View Report</button>
               </td>
             </tr>
@@ -211,8 +177,10 @@ watch(() => route.path, (newValue, oldValue) => {
 
   .top-section {
     //max-width: 1500px;
+    margin-left: 40px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 
     .filter-card {
       margin-top: 30px;
