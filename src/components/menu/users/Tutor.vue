@@ -64,7 +64,7 @@ const isPendingPath = computed(() => route.path === '/users/tutors/pending');
             {{'Tutors'}}
           </router-link>
           <router-link :class="{'active-border': isPendingPath}" @click="handleClick" to="/users/tutors/pending">
-            {{'Pending Jobs'}}
+            {{'Pending Tutors'}}
           </router-link>
         </div>
         <router-link to="/users/create-tutor">{{'Create Tutor'}}</router-link>
