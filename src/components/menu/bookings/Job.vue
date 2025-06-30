@@ -284,7 +284,6 @@ const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed'
               width: 320px;
               display: flex;
               gap: 10px;
-              //justify-content: space-between;
               align-items: center;
               height: 50px;
 
