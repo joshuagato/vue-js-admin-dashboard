@@ -18,6 +18,8 @@ import TutorCreation from "./menu/users/TutorCreation.vue";
 import Lesson from "./menu/bookings/Lesson.vue";
 import FreeMeeting from "./menu/bookings/FreeMeeting.vue";
 import Request from "./menu/bookings/Request.vue";
+import Job from "./menu/bookings/Job.vue";
+import JobCreation from "./menu/bookings/JobCreation.vue";
 
 // Reactive reference to store the current URL
 // const currentUrlObject = ref(window.location.pathname);
@@ -52,6 +54,8 @@ const isCreateLessonPath = computed(() => route.path.includes('/bookings/create-
 
 const isFreeMeetingPath = computed(() => route.path.includes('/bookings/free-meetings'));
 const isRequestPath = computed(() => route.path.includes('/bookings/requests'));
+const isJobPath = computed(() => route.path.includes('/bookings/jobs'));
+const isCreateJobPath = computed(() => route.path.includes('/bookings/create-job'));
 </script>
 
 <template>
@@ -80,6 +84,8 @@ const isRequestPath = computed(() => route.path.includes('/bookings/requests'));
       <Lesson v-else-if="isLessonPath" />
       <FreeMeeting v-else-if="isFreeMeetingPath" />
       <Request v-else-if="isRequestPath" />
+      <Job v-else-if="isJobPath" />
+      <JobCreation v-else-if="isCreateJobPath" />
 
     </section>
   </div>
