@@ -7,6 +7,7 @@ import FilterCard from "../../FilterCard.vue";
 import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
 import SearchInput from "../../inputs/SearchInput.vue";
 import CardMainHeading from "../../headers/CardMainHeading.vue";
+import Popup from "../../containers/Popup.vue";
 
 const list = [
   { jobID: '01', clientManager: 'Karen Onah', client: 'Environmental Studies', students: 'Hannah Opoku', date: '12/03/2025 ', duration: '3 months', location: 'LX C2 Alaye Street, Accra' },
@@ -42,9 +43,13 @@ const route = useRoute();
 
 const isJobsHomePath = computed(() => route.path === '/bookings/jobs');
 const isPendingPath = computed(() => route.path === '/bookings/jobs/pending');
-const isActive = computed(() => route.path === '/bookings/jobs/active');
+const isActivePath = computed(() => route.path === '/bookings/jobs/active');
 const isPausedPath = computed(() => route.path === '/bookings/jobs/paused');
 const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed');
+
+const popUp = ref(false);
+
+const handlePopUp = (event: MouseEvent) => popUp.value = !popUp.value;
 
 </script>
 
@@ -97,6 +102,7 @@ const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed'
       </article>
 
       <article class="table-section">
+        <Popup v-if="popUp" :handlePopUp="handlePopUp" />
         <table>
           <thead>
             <tr>
@@ -120,7 +126,33 @@ const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed'
               <td>{{duration}}</td>
               <td style="width: 300px">{{location}}</td>
               <td>
-                <button class="view-account">View More</button>
+                <button class="view-account" @click="handlePopUp">View More</button>
+              </td>
+            </tr>
+
+            <tr v-if="isActivePath" class="fade-in" v-for="{jobID, clientManager, client, students, date, duration, location} in list">
+              <td style="width: 100px">{{jobID}}</td>
+              <td>{{clientManager}}</td>
+              <td>{{ client }}</td>
+              <td>{{students}}</td>
+              <td style="width: 140px">{{date}}</td>
+              <td>{{duration}}</td>
+              <td style="width: 300px">{{location}}</td>
+              <td>
+                <button class="view-account" @click="handlePopUp">View More</button>
+              </td>
+            </tr>
+
+            <tr v-if="isPausedPath" class="fade-in" v-for="{jobID, clientManager, client, students, date, duration, location} in list">
+              <td style="width: 100px">{{jobID}}</td>
+              <td>{{clientManager}}</td>
+              <td>{{ client }}</td>
+              <td>{{students}}</td>
+              <td style="width: 140px">{{date}}</td>
+              <td>{{duration}}</td>
+              <td style="width: 300px">{{location}}</td>
+              <td>
+                <button class="view-account" @click="handlePopUp">View More</button>
               </td>
             </tr>
 
@@ -133,7 +165,7 @@ const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed'
               <td>{{duration}}</td>
               <td style="width: 300px">{{location}}</td>
               <td>
-                <button class="view-account">View More</button>
+                <button class="view-account" @click="handlePopUp">View More</button>
               </td>
             </tr>
           </tbody>
