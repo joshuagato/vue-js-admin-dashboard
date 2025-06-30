@@ -2,7 +2,8 @@
 import DisplayCard from "../../DisplayCard.vue";
 import FilterCard from "../../FilterCard.vue";
 import SummaryCardsRow from "../../containers/SummaryCardsRow.vue";
-import Student from "./Student.vue";
+import {computed} from "vue";
+import {useRoute} from "vue-router";
 
 const list = [
   { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
@@ -14,6 +15,30 @@ const list = [
   { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
   { id: 'VT29373', name: 'Karen Osei', subjects: 'Science', curriculum: 'ICGCE', date: '23/02/2024' },
 ]
+
+const handleClick = (event: MouseEvent) => {
+  // const clickedElement = event.target as HTMLElement;
+  const clickedElement = event.currentTarget as HTMLElement;
+
+  const parent = clickedElement.parentNode;
+  const siblings = parent.children;
+
+  // Loop through all siblings and remove the 'active-border' class
+  for (let i = 0; i < siblings.length; i++) {
+    const sibling = siblings[i] as HTMLElement; // Cast to HTMLElement
+    if (sibling.classList.contains('active-border')) {
+      sibling.classList.remove('active-border');
+    }
+  }
+
+  // Add the 'active-border' class to the clicked element
+  clickedElement.classList.add('active-border');
+}
+
+const route = useRoute();
+
+const isTutorsHomePath = computed(() => route.path === '/users/tutors');
+const isPendingPath = computed(() => route.path === '/users/tutors/pending');
 
 </script>
 
@@ -35,8 +60,12 @@ const list = [
     <section class="bottom-section">
       <article class="head-section">
         <div class="menu-items">
-          <router-link to="/users/tutors/schools">{{'Tutors'}}</router-link>
-          <router-link to="/users/tutors/academy">{{'Pending Tutors'}}</router-link>
+          <router-link :class="{'active-border': isTutorsHomePath}" @click="handleClick" to="/users/tutors">
+            {{'Tutors'}}
+          </router-link>
+          <router-link :class="{'active-border': isPendingPath}" @click="handleClick" to="/users/tutors/pending">
+            {{'Pending Jobs'}}
+          </router-link>
         </div>
         <router-link to="/users/create-tutor">{{'Create Tutor'}}</router-link>
       </article>
@@ -135,7 +164,7 @@ const list = [
           margin-right: 20px;
           margin-bottom: -1.5px;
           //background-color: #716F6F;
-          border-bottom: 3px solid #0C7334;
+          //border-bottom: 3px solid #0C7334;
 
           &:link, &:visited {
             color: #000;
@@ -246,5 +275,7 @@ const list = [
   }
 }
 
-
+.active-border {
+  border-bottom: 3px solid #0C7334;
+}
 </style>
