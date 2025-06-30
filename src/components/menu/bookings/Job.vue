@@ -124,19 +124,16 @@ const isCompletedPath = computed(() => route.path === '/bookings/jobs/completed'
               </td>
             </tr>
 
-            <tr v-if="isCompletedPath" class="fade-in" v-for="{id, tutor, students, subjects, curriculum, dateTime} in list">
-              <td style="width: 100px">{{id}}</td>
-              <td>{{tutor}}</td>
-              <td>{{ students }}</td>
-              <td>{{subjects}}</td>
-              <td>{{curriculum}}</td>
-              <td style="width: 140px">
-                <span>{{dateTime.split('T')[0]}}</span>
-                <span>{{dateTime.split('T')[1]}}</span>
-              </td>
+            <tr v-if="isCompletedPath" class="fade-in" v-for="{jobID, clientManager, client, students, date, duration, location} in list">
+              <td style="width: 100px">{{jobID}}</td>
+              <td>{{clientManager}}</td>
+              <td>{{ client }}</td>
+              <td>{{students}}</td>
+              <td style="width: 140px">{{date}}</td>
+              <td>{{duration}}</td>
+              <td style="width: 300px">{{location}}</td>
               <td>
                 <button class="view-account">View More</button>
-                <button class="assign">Reassign Tutor</button>
               </td>
             </tr>
           </tbody>
