@@ -123,6 +123,7 @@ onUnmounted(() => {
       <div class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave" :style="extraMenuStyle">
         <h1>Academics</h1>
         <ul>
+          <li><router-link to="/academics/tutors">Tutors</router-link></li>
           <li><router-link to="/academics/tutor-recruitment">Tutor Recruitment</router-link></li>
           <li><router-link to="/academics/tutor-performance">Tutor Performance</router-link></li>
           <li><router-link to="/academics/student-matching">Student Matching</router-link></li>
