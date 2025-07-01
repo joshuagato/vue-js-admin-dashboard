@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import {defineComponent, ref, reactive, onMounted, onUnmounted} from 'vue';
 
-// Template refs for accessing DOM elements
-const usersMenuItemRef = ref<HTMLElement | null>(null);
-const bookingsMenuItemRef = ref<HTMLElement | null>(null);
-
-const usersExtraMenuRef = ref<HTMLElement | null>(null);
-const bookingsExtraMenuRef = ref<HTMLElement | null>(null);
-
 // Reactive state to control menu visibility
 const isExtraMenuVisible = ref(false);
 
@@ -102,10 +95,7 @@ onUnmounted(() => {
       <article class="menu-item" ref="usersMenuItemRef" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
         <img src="../../assets/side-menu/users-solid%201.png" alt="Users icon" /><span>Users</span>
       </article>
-      <div
-          ref="usersExtraMenuRef" class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave"
-          :style="extraMenuStyle"
-      >
+      <div class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave" :style="extraMenuStyle">
         <h1>Users</h1>
         <ul>
           <li><router-link to="/users/staff">Staff</router-link></li>
@@ -115,13 +105,10 @@ onUnmounted(() => {
           <li><router-link to="/users/facilitators">Facilitators</router-link></li>
         </ul>
       </div>
-      <article class="menu-item" ref="bookingsMenuItemRef" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+      <article class="menu-item" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
         <img src="../../assets/side-menu/video-solid%202.png" alt="Bookings icon" /><span>Bookings</span>
       </article>
-      <div
-          ref="bookingsExtraMenuRef" class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave"
-          :style="extraMenuStyle"
-      >
+      <div class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave" :style="extraMenuStyle">
         <h1>Bookings</h1>
         <ul>
           <li><router-link to="/bookings/lessons">Lessons</router-link></li>
@@ -130,7 +117,20 @@ onUnmounted(() => {
           <li><router-link to="/bookings/jobs">Jobs</router-link></li>
         </ul>
       </div>
-      <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academics icon" /><span>Academics</span></article>
+      <article class="menu-item" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+        <img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academics icon" /><span>Academics</span>
+      </article>
+      <div class="extra-menu" @mouseenter="clearHideTimeout" @mouseleave="handleMouseLeave" :style="extraMenuStyle">
+        <h1>Academics</h1>
+        <ul>
+          <li><router-link to="/academics/tutor-recruitment">Tutor Recruitment</router-link></li>
+          <li><router-link to="/academics/tutor-performance">Tutor Performance</router-link></li>
+          <li><router-link to="/academics/student-matching">Student Matching</router-link></li>
+          <li><router-link to="/academics/quality-control">Quality Control</router-link></li>
+          <li><router-link to="/academics/tickets">Tickets</router-link></li>
+          <li><router-link to="/academics/report">Report</router-link></li>
+        </ul>
+      </div>
       <article class="menu-item"><img src="../../assets/side-menu/wallet-solid 1.png" alt="Finance icon" /><span>Finance</span></article>
       <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Academy icon" /><span>Academy</span></article>
       <article class="menu-item"><img src="../../assets/side-menu/user-graduate-solid 1.png" alt="Schools icon" /><span>Schools</span></article>
